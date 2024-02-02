@@ -1,0 +1,7 @@
+{
+  "presets": ["@quasar/babel-preset-app", "@babel/preset-env"],
+  "plugins": [
+    "@babel/plugin-transform-private-methods",
+    "@babel/plugin-transform-async-to-generator"
+  ]
+}

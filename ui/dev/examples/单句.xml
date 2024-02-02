@@ -1,0 +1,2063 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jbw>
+  <ju id="1" txt="（陈晓红和李冬生商量假日旅游计划。）">
+    <xj>
+      <sbj>
+        <w>（</w>
+        <n>陈晓红</n>
+        <cc fun="COO">
+          <c sen="103">和</c>
+        </cc>
+        <n>李冬生</n>
+      </sbj>
+      <prd scp="VO">
+        <v sen="001">商量</v>
+      </prd>
+      <obj>
+        <att>
+          <n sen="001">假日</n>
+        </att>
+        <n mod="v2↗n2">
+          <v sen="001">旅游</v>
+          <n sen="001">计划</n>
+        </n>
+        <w>。</w>
+        <w>）</w>
+      </obj>
+    </xj>
+  </ju>
+  <ju id="2" txt="这个假期比去年长，可以好好儿出去玩儿一玩儿了。">
+    <xj>
+      <sbj>
+        <att>
+          <r sen="001">这个</r>
+        </att>
+        <n sen="001">假期</n>
+      </sbj>
+      <adv>
+        <pp>
+          <p sen="009">比</p>
+        </pp>
+        <t sen="001">去年</t>
+      </adv>
+      <prd scp="V">
+        <a sen="001">长</a>
+        <w>，</w>
+      </prd>
+    </xj>
+    <xj>
+      <sbj>
+        <x />
+      </sbj>
+      <prd scp="V">
+        <v sen="001">可以</v>
+      </prd>
+      <cc fun="SYN" />
+      <adv>
+        <d mod="d2-u">
+          <d sen="002">好好</d>
+          <u>儿</u>
+        </d>
+      </adv>
+      <prd scp="V">
+        <v sen="001">出去</v>
+      </prd>
+      <cc fun="SER" />
+      <prd scp="V">
+        <v mod="v2·m·v2">
+          <v>玩儿</v>
+          <m sen="006">一</m>
+          <v>玩儿</v>
+        </v>
+      </prd>
+      <uv>
+        <u sen="002">了</u>
+        <w>。</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="3" txt="咱们去上海怎么样？">
+    <xj>
+      <sbj>
+        <sbj>
+          <r sen="001">咱们</r>
+        </sbj>
+        <prd scp="VO">
+          <v sen="001">去</v>
+        </prd>
+        <obj>
+          <n>上海</n>
+        </obj>
+      </sbj>
+      <prd scp="V">
+        <r sen="001">怎么样</r>
+        <w>？</w>
+      </prd>
+    </xj>
+  </ju>
+  <ju id="4" txt="夏天去南方旅游不太舒服，那边的天气又闷又热。">
+    <xj>
+      <adv>
+        <n sen="001">夏天</n>
+      </adv>
+      <sbj>
+        <prd scp="VO">
+          <v sen="001">去</v>
+        </prd>
+        <obj>
+          <n sen="002">南方</n>
+        </obj>
+        <cc fun="SER" />
+        <prd scp="V">
+          <v sen="001">旅游</v>
+        </prd>
+      </sbj>
+      <adv>
+        <d sen="001">不</d>
+      </adv>
+      <adv>
+        <d sen="004">太</d>
+      </adv>
+      <prd scp="V">
+        <a sen="001">舒服</a>
+        <w>，</w>
+      </prd>
+    </xj>
+    <xj>
+      <sbj>
+        <att>
+          <n mod="r◇n">
+            <r sen="201">那</r>
+            <n sen="101">边</n>
+          </n>
+          <uu>
+            <u sen="001">的</u>
+          </uu>
+        </att>
+        <n sen="001">天气</n>
+      </sbj>
+      <adv>
+        <d sen="002">又</d>
+      </adv>
+      <prd scp="V">
+        <a sen="001">闷</a>
+      </prd>
+      <cc fun="UNI" />
+      <adv>
+        <d sen="002">又</d>
+      </adv>
+      <prd scp="V">
+        <a sen="002">热</a>
+        <w>。</w>
+      </prd>
+    </xj>
+  </ju>
+  <ju id="5" txt="是吗？">
+    <xj>
+      <sbj>
+        <x />
+      </sbj>
+      <prd scp="V">
+        <v sen="201">是</v>
+      </prd>
+      <uv>
+        <u sen="201">吗</u>
+        <w>？</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="6" txt="温度比北京高吧？">
+    <xj>
+      <sbj>
+        <n sen="001">温度</n>
+      </sbj>
+      <adv>
+        <pp>
+          <p sen="009">比</p>
+        </pp>
+        <n>北京</n>
+      </adv>
+      <prd scp="V">
+        <a sen="004">高</a>
+      </prd>
+      <uv>
+        <u sen="203">吧</u>
+        <w>？</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="7" txt="温度不比北京高，可是湿度很大。">
+    <xj>
+      <sbj>
+        <n sen="001">温度</n>
+      </sbj>
+      <adv>
+        <d sen="001">不</d>
+      </adv>
+      <adv>
+        <pp>
+          <p sen="009">比</p>
+        </pp>
+        <n>北京</n>
+      </adv>
+      <prd scp="V">
+        <a sen="004">高</a>
+        <w>，</w>
+      </prd>
+    </xj>
+    <xj>
+      <cc>
+        <c sen="001">可是</c>
+      </cc>
+      <sbj>
+        <n sen="001">湿度</n>
+      </sbj>
+      <adv>
+        <d sen="001">很</d>
+      </adv>
+      <prd scp="V">
+        <a sen="001">大</a>
+        <w>。</w>
+      </prd>
+    </xj>
+  </ju>
+  <ju id="8" txt="那咱们去哈尔滨吧，那儿一定比北京凉快多了。">
+    <xj>
+      <cc>
+        <c sen="203">那</c>
+      </cc>
+      <sbj>
+        <r sen="001">咱们</r>
+      </sbj>
+      <prd scp="VO">
+        <v sen="001">去</v>
+      </prd>
+      <obj>
+        <n>哈尔滨</n>
+      </obj>
+      <uv>
+        <u sen="201">吧</u>
+        <w>，</w>
+      </uv>
+    </xj>
+    <xj>
+      <sbj>
+        <n sen="001">那儿</n>
+      </sbj>
+      <adv>
+        <d sen="003">一定</d>
+      </adv>
+      <adv>
+        <pp>
+          <p sen="009">比</p>
+        </pp>
+        <n>北京</n>
+      </adv>
+      <prd scp="VC">
+        <a sen="001">凉快</a>
+      </prd>
+      <cmp>
+        <a sen="005">多</a>
+      </cmp>
+      <uv>
+        <u sen="002">了</u>
+        <w>。</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="9" txt="哈尔滨应该冬天去，可以看冰灯，还可以滑雪。">
+    <xj>
+      <sbj>
+        <n>哈尔滨</n>
+      </sbj>
+      <prd scp="V">
+        <v sen="001">应该</v>
+      </prd>
+      <cc fun="SYN" />
+      <adv>
+        <n sen="001">冬天</n>
+      </adv>
+      <prd scp="V">
+        <v sen="001">去</v>
+        <w>，</w>
+      </prd>
+    </xj>
+    <xj>
+      <sbj>
+        <x />
+      </sbj>
+      <prd scp="V">
+        <v sen="001">可以</v>
+      </prd>
+      <cc fun="SYN" />
+      <prd scp="VO">
+        <v sen="101">看</v>
+      </prd>
+      <obj>
+        <n sen="001">冰灯</n>
+        <w>，</w>
+      </obj>
+    </xj>
+    <xj>
+      <sbj>
+        <x />
+      </sbj>
+      <adv>
+        <d sen="002">还</d>
+      </adv>
+      <prd scp="V">
+        <v sen="001">可以</v>
+      </prd>
+      <cc fun="SYN" />
+      <prd scp="V">
+        <v sen="001">滑雪</v>
+        <w>。</w>
+      </prd>
+    </xj>
+  </ju>
+  <ju id="10" txt="现在是夏天，你怎么说起冬天的事儿来了？">
+    <xj>
+      <sbj>
+        <t sen="001">现在</t>
+      </sbj>
+      <prd scp="VO">
+        <v sen="203">是</v>
+      </prd>
+      <obj>
+        <n sen="001">夏天</n>
+        <w>，</w>
+      </obj>
+    </xj>
+    <xj>
+      <sbj>
+        <r sen="001">你</r>
+      </sbj>
+      <adv>
+        <r sen="001">怎么</r>
+      </adv>
+      <prd scp="VOC">
+        <v mod="v←v">
+          <v sen="101">说</v>
+          <v sen="104">起</v>
+        </v>
+      </prd>
+      <obj>
+        <att>
+          <n sen="001">冬天</n>
+          <uu>
+            <u sen="001">的</u>
+          </uu>
+        </att>
+        <n>事儿</n>
+      </obj>
+      <cmp>
+        <v sen="006">来</v>
+      </cmp>
+      <uv>
+        <u sen="002">了</u>
+        <w>？</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="11" txt="你忘了吗？">
+    <xj>
+      <sbj>
+        <r sen="001">你</r>
+      </sbj>
+      <prd scp="V">
+        <v sen="001">忘</v>
+      </prd>
+      <uv>
+        <u mod="u◇u">
+          <u sen="002">了</u>
+          <u sen="201">吗</u>
+        </u>
+        <w>？</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="12" txt="我叫“冬生”，我是冬天生的呀。">
+    <xj>
+      <sbj>
+        <r sen="001">我</r>
+      </sbj>
+      <prd scp="VO">
+        <v sen="004">叫</v>
+      </prd>
+      <obj>
+        <w>“冬生”</w>
+        <w>，</w>
+      </obj>
+    </xj>
+    <xj>
+      <sbj>
+        <r sen="001">我</r>
+      </sbj>
+      <prd scp="V">
+        <v sen="201">是</v>
+      </prd>
+      <cc fun="SYN" />
+      <adv>
+        <n sen="001">冬天</n>
+      </adv>
+      <prd scp="V">
+        <v mod="v-u">
+          <v sen="001">生</v>
+          <u sen="002">的</u>
+        </v>
+      </prd>
+      <uv>
+        <u sen="101">呀</u>
+        <w>。</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="1" txt="（陈晓红和李冬生商量假日旅游计划。）">
+    <xj>
+      <sbj>
+        <w>（</w>
+        <n>陈晓红</n>
+        <cc fun="COO">
+          <c sen="103">和</c>
+        </cc>
+        <n>李冬生</n>
+      </sbj>
+      <prd scp="VO">
+        <v sen="001">商量</v>
+      </prd>
+      <obj>
+        <att>
+          <n sen="001">假日</n>
+        </att>
+        <n mod="v2↗n2">
+          <v sen="001">旅游</v>
+          <n sen="001">计划</n>
+        </n>
+        <w>。</w>
+        <w>）</w>
+      </obj>
+    </xj>
+  </ju>
+  <ju id="2" txt="这个假期比去年长，可以好好儿出去玩儿一玩儿了。">
+    <xj>
+      <sbj>
+        <att>
+          <r sen="001">这个</r>
+        </att>
+        <n sen="001">假期</n>
+      </sbj>
+      <adv>
+        <pp>
+          <p sen="009">比</p>
+        </pp>
+        <t sen="001">去年</t>
+      </adv>
+      <prd scp="V">
+        <a sen="001">长</a>
+        <w>，</w>
+      </prd>
+    </xj>
+    <xj>
+      <sbj>
+        <x />
+      </sbj>
+      <prd scp="V">
+        <v sen="001">可以</v>
+      </prd>
+      <cc fun="SYN" />
+      <adv>
+        <d mod="d2-u">
+          <d sen="002">好好</d>
+          <u>儿</u>
+        </d>
+      </adv>
+      <prd scp="V">
+        <v sen="001">出去</v>
+      </prd>
+      <cc fun="SER" />
+      <prd scp="V">
+        <v mod="v2·m·v2">
+          <v>玩儿</v>
+          <m sen="006">一</m>
+          <v>玩儿</v>
+        </v>
+      </prd>
+      <uv>
+        <u sen="002">了</u>
+        <w>。</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="3" txt="咱们去上海怎么样？">
+    <xj>
+      <sbj>
+        <sbj>
+          <r sen="001">咱们</r>
+        </sbj>
+        <prd scp="VO">
+          <v sen="001">去</v>
+        </prd>
+        <obj>
+          <n>上海</n>
+        </obj>
+      </sbj>
+      <prd scp="V">
+        <r sen="001">怎么样</r>
+        <w>？</w>
+      </prd>
+    </xj>
+  </ju>
+  <ju id="4" txt="夏天去南方旅游不太舒服，那边的天气又闷又热。">
+    <xj>
+      <adv>
+        <n sen="001">夏天</n>
+      </adv>
+      <sbj>
+        <prd scp="VO">
+          <v sen="001">去</v>
+        </prd>
+        <obj>
+          <n sen="002">南方</n>
+        </obj>
+        <cc fun="SER" />
+        <prd scp="V">
+          <v sen="001">旅游</v>
+        </prd>
+      </sbj>
+      <adv>
+        <d sen="001">不</d>
+      </adv>
+      <adv>
+        <d sen="004">太</d>
+      </adv>
+      <prd scp="V">
+        <a sen="001">舒服</a>
+        <w>，</w>
+      </prd>
+    </xj>
+    <xj>
+      <sbj>
+        <att>
+          <n mod="r◇n">
+            <r sen="201">那</r>
+            <n sen="101">边</n>
+          </n>
+          <uu>
+            <u sen="001">的</u>
+          </uu>
+        </att>
+        <n sen="001">天气</n>
+      </sbj>
+      <adv>
+        <d sen="002">又</d>
+      </adv>
+      <prd scp="V">
+        <a sen="001">闷</a>
+      </prd>
+      <cc fun="UNI" />
+      <adv>
+        <d sen="002">又</d>
+      </adv>
+      <prd scp="V">
+        <a sen="002">热</a>
+        <w>。</w>
+      </prd>
+    </xj>
+  </ju>
+  <ju id="5" txt="是吗？">
+    <xj>
+      <sbj>
+        <x />
+      </sbj>
+      <prd scp="V">
+        <v sen="201">是</v>
+      </prd>
+      <uv>
+        <u sen="201">吗</u>
+        <w>？</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="6" txt="温度比北京高吧？">
+    <xj>
+      <sbj>
+        <n sen="001">温度</n>
+      </sbj>
+      <adv>
+        <pp>
+          <p sen="009">比</p>
+        </pp>
+        <n>北京</n>
+      </adv>
+      <prd scp="V">
+        <a sen="004">高</a>
+      </prd>
+      <uv>
+        <u sen="203">吧</u>
+        <w>？</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="7" txt="温度不比北京高，可是湿度很大。">
+    <xj>
+      <sbj>
+        <n sen="001">温度</n>
+      </sbj>
+      <adv>
+        <d sen="001">不</d>
+      </adv>
+      <adv>
+        <pp>
+          <p sen="009">比</p>
+        </pp>
+        <n>北京</n>
+      </adv>
+      <prd scp="V">
+        <a sen="004">高</a>
+        <w>，</w>
+      </prd>
+    </xj>
+    <xj>
+      <cc>
+        <c sen="001">可是</c>
+      </cc>
+      <sbj>
+        <n sen="001">湿度</n>
+      </sbj>
+      <adv>
+        <d sen="001">很</d>
+      </adv>
+      <prd scp="V">
+        <a sen="001">大</a>
+        <w>。</w>
+      </prd>
+    </xj>
+  </ju>
+  <ju id="8" txt="那咱们去哈尔滨吧，那儿一定比北京凉快多了。">
+    <xj>
+      <cc>
+        <c sen="203">那</c>
+      </cc>
+      <sbj>
+        <r sen="001">咱们</r>
+      </sbj>
+      <prd scp="VO">
+        <v sen="001">去</v>
+      </prd>
+      <obj>
+        <n>哈尔滨</n>
+      </obj>
+      <uv>
+        <u sen="201">吧</u>
+        <w>，</w>
+      </uv>
+    </xj>
+    <xj>
+      <sbj>
+        <n sen="001">那儿</n>
+      </sbj>
+      <adv>
+        <d sen="003">一定</d>
+      </adv>
+      <adv>
+        <pp>
+          <p sen="009">比</p>
+        </pp>
+        <n>北京</n>
+      </adv>
+      <prd scp="VC">
+        <a sen="001">凉快</a>
+      </prd>
+      <cmp>
+        <a sen="005">多</a>
+      </cmp>
+      <uv>
+        <u sen="002">了</u>
+        <w>。</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="9" txt="哈尔滨应该冬天去，可以看冰灯，还可以滑雪。">
+    <xj>
+      <sbj>
+        <n>哈尔滨</n>
+      </sbj>
+      <prd scp="V">
+        <v sen="001">应该</v>
+      </prd>
+      <cc fun="SYN" />
+      <adv>
+        <n sen="001">冬天</n>
+      </adv>
+      <prd scp="V">
+        <v sen="001">去</v>
+        <w>，</w>
+      </prd>
+    </xj>
+    <xj>
+      <sbj>
+        <x />
+      </sbj>
+      <prd scp="V">
+        <v sen="001">可以</v>
+      </prd>
+      <cc fun="SYN" />
+      <prd scp="VO">
+        <v sen="101">看</v>
+      </prd>
+      <obj>
+        <n sen="001">冰灯</n>
+        <w>，</w>
+      </obj>
+    </xj>
+    <xj>
+      <sbj>
+        <x />
+      </sbj>
+      <adv>
+        <d sen="002">还</d>
+      </adv>
+      <prd scp="V">
+        <v sen="001">可以</v>
+      </prd>
+      <cc fun="SYN" />
+      <prd scp="V">
+        <v sen="001">滑雪</v>
+        <w>。</w>
+      </prd>
+    </xj>
+  </ju>
+  <ju id="10" txt="现在是夏天，你怎么说起冬天的事儿来了？">
+    <xj>
+      <sbj>
+        <t sen="001">现在</t>
+      </sbj>
+      <prd scp="VO">
+        <v sen="203">是</v>
+      </prd>
+      <obj>
+        <n sen="001">夏天</n>
+        <w>，</w>
+      </obj>
+    </xj>
+    <xj>
+      <sbj>
+        <r sen="001">你</r>
+      </sbj>
+      <adv>
+        <r sen="001">怎么</r>
+      </adv>
+      <prd scp="VOC">
+        <v mod="v←v">
+          <v sen="101">说</v>
+          <v sen="104">起</v>
+        </v>
+      </prd>
+      <obj>
+        <att>
+          <n sen="001">冬天</n>
+          <uu>
+            <u sen="001">的</u>
+          </uu>
+        </att>
+        <n>事儿</n>
+      </obj>
+      <cmp>
+        <v sen="006">来</v>
+      </cmp>
+      <uv>
+        <u sen="002">了</u>
+        <w>？</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="11" txt="你忘了吗？">
+    <xj>
+      <sbj>
+        <r sen="001">你</r>
+      </sbj>
+      <prd scp="V">
+        <v sen="001">忘</v>
+      </prd>
+      <uv>
+        <u mod="u◇u">
+          <u sen="002">了</u>
+          <u sen="201">吗</u>
+        </u>
+        <w>？</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="12" txt="我叫“冬生”，我是冬天生的呀。">
+    <xj>
+      <sbj>
+        <r sen="001">我</r>
+      </sbj>
+      <prd scp="VO">
+        <v sen="004">叫</v>
+      </prd>
+      <obj>
+        <w>“冬生”</w>
+        <w>，</w>
+      </obj>
+    </xj>
+    <xj>
+      <sbj>
+        <r sen="001">我</r>
+      </sbj>
+      <prd scp="V">
+        <v sen="201">是</v>
+      </prd>
+      <cc fun="SYN" />
+      <adv>
+        <n sen="001">冬天</n>
+      </adv>
+      <prd scp="V">
+        <v mod="v-u">
+          <v sen="001">生</v>
+          <u sen="002">的</u>
+        </v>
+      </prd>
+      <uv>
+        <u sen="101">呀</u>
+        <w>。</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="1" txt="（陈晓红和李冬生商量假日旅游计划。）">
+    <xj>
+      <sbj>
+        <w>（</w>
+        <n>陈晓红</n>
+        <cc fun="COO">
+          <c sen="103">和</c>
+        </cc>
+        <n>李冬生</n>
+      </sbj>
+      <prd scp="VO">
+        <v sen="001">商量</v>
+      </prd>
+      <obj>
+        <att>
+          <n sen="001">假日</n>
+        </att>
+        <n mod="v2↗n2">
+          <v sen="001">旅游</v>
+          <n sen="001">计划</n>
+        </n>
+        <w>。</w>
+        <w>）</w>
+      </obj>
+    </xj>
+  </ju>
+  <ju id="2" txt="这个假期比去年长，可以好好儿出去玩儿一玩儿了。">
+    <xj>
+      <sbj>
+        <att>
+          <r sen="001">这个</r>
+        </att>
+        <n sen="001">假期</n>
+      </sbj>
+      <adv>
+        <pp>
+          <p sen="009">比</p>
+        </pp>
+        <t sen="001">去年</t>
+      </adv>
+      <prd scp="V">
+        <a sen="001">长</a>
+        <w>，</w>
+      </prd>
+    </xj>
+    <xj>
+      <sbj>
+        <x />
+      </sbj>
+      <prd scp="V">
+        <v sen="001">可以</v>
+      </prd>
+      <cc fun="SYN" />
+      <adv>
+        <d mod="d2-u">
+          <d sen="002">好好</d>
+          <u>儿</u>
+        </d>
+      </adv>
+      <prd scp="V">
+        <v sen="001">出去</v>
+      </prd>
+      <cc fun="SER" />
+      <prd scp="V">
+        <v mod="v2·m·v2">
+          <v>玩儿</v>
+          <m sen="006">一</m>
+          <v>玩儿</v>
+        </v>
+      </prd>
+      <uv>
+        <u sen="002">了</u>
+        <w>。</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="3" txt="咱们去上海怎么样？">
+    <xj>
+      <sbj>
+        <sbj>
+          <r sen="001">咱们</r>
+        </sbj>
+        <prd scp="VO">
+          <v sen="001">去</v>
+        </prd>
+        <obj>
+          <n>上海</n>
+        </obj>
+      </sbj>
+      <prd scp="V">
+        <r sen="001">怎么样</r>
+        <w>？</w>
+      </prd>
+    </xj>
+  </ju>
+  <ju id="4" txt="夏天去南方旅游不太舒服，那边的天气又闷又热。">
+    <xj>
+      <adv>
+        <n sen="001">夏天</n>
+      </adv>
+      <sbj>
+        <prd scp="VO">
+          <v sen="001">去</v>
+        </prd>
+        <obj>
+          <n sen="002">南方</n>
+        </obj>
+        <cc fun="SER" />
+        <prd scp="V">
+          <v sen="001">旅游</v>
+        </prd>
+      </sbj>
+      <adv>
+        <d sen="001">不</d>
+      </adv>
+      <adv>
+        <d sen="004">太</d>
+      </adv>
+      <prd scp="V">
+        <a sen="001">舒服</a>
+        <w>，</w>
+      </prd>
+    </xj>
+    <xj>
+      <sbj>
+        <att>
+          <n mod="r◇n">
+            <r sen="201">那</r>
+            <n sen="101">边</n>
+          </n>
+          <uu>
+            <u sen="001">的</u>
+          </uu>
+        </att>
+        <n sen="001">天气</n>
+      </sbj>
+      <adv>
+        <d sen="002">又</d>
+      </adv>
+      <prd scp="V">
+        <a sen="001">闷</a>
+      </prd>
+      <cc fun="UNI" />
+      <adv>
+        <d sen="002">又</d>
+      </adv>
+      <prd scp="V">
+        <a sen="002">热</a>
+        <w>。</w>
+      </prd>
+    </xj>
+  </ju>
+  <ju id="5" txt="是吗？">
+    <xj>
+      <sbj>
+        <x />
+      </sbj>
+      <prd scp="V">
+        <v sen="201">是</v>
+      </prd>
+      <uv>
+        <u sen="201">吗</u>
+        <w>？</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="6" txt="温度比北京高吧？">
+    <xj>
+      <sbj>
+        <n sen="001">温度</n>
+      </sbj>
+      <adv>
+        <pp>
+          <p sen="009">比</p>
+        </pp>
+        <n>北京</n>
+      </adv>
+      <prd scp="V">
+        <a sen="004">高</a>
+      </prd>
+      <uv>
+        <u sen="203">吧</u>
+        <w>？</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="7" txt="温度不比北京高，可是湿度很大。">
+    <xj>
+      <sbj>
+        <n sen="001">温度</n>
+      </sbj>
+      <adv>
+        <d sen="001">不</d>
+      </adv>
+      <adv>
+        <pp>
+          <p sen="009">比</p>
+        </pp>
+        <n>北京</n>
+      </adv>
+      <prd scp="V">
+        <a sen="004">高</a>
+        <w>，</w>
+      </prd>
+    </xj>
+    <xj>
+      <cc>
+        <c sen="001">可是</c>
+      </cc>
+      <sbj>
+        <n sen="001">湿度</n>
+      </sbj>
+      <adv>
+        <d sen="001">很</d>
+      </adv>
+      <prd scp="V">
+        <a sen="001">大</a>
+        <w>。</w>
+      </prd>
+    </xj>
+  </ju>
+  <ju id="8" txt="那咱们去哈尔滨吧，那儿一定比北京凉快多了。">
+    <xj>
+      <cc>
+        <c sen="203">那</c>
+      </cc>
+      <sbj>
+        <r sen="001">咱们</r>
+      </sbj>
+      <prd scp="VO">
+        <v sen="001">去</v>
+      </prd>
+      <obj>
+        <n>哈尔滨</n>
+      </obj>
+      <uv>
+        <u sen="201">吧</u>
+        <w>，</w>
+      </uv>
+    </xj>
+    <xj>
+      <sbj>
+        <n sen="001">那儿</n>
+      </sbj>
+      <adv>
+        <d sen="003">一定</d>
+      </adv>
+      <adv>
+        <pp>
+          <p sen="009">比</p>
+        </pp>
+        <n>北京</n>
+      </adv>
+      <prd scp="VC">
+        <a sen="001">凉快</a>
+      </prd>
+      <cmp>
+        <a sen="005">多</a>
+      </cmp>
+      <uv>
+        <u sen="002">了</u>
+        <w>。</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="9" txt="哈尔滨应该冬天去，可以看冰灯，还可以滑雪。">
+    <xj>
+      <sbj>
+        <n>哈尔滨</n>
+      </sbj>
+      <prd scp="V">
+        <v sen="001">应该</v>
+      </prd>
+      <cc fun="SYN" />
+      <adv>
+        <n sen="001">冬天</n>
+      </adv>
+      <prd scp="V">
+        <v sen="001">去</v>
+        <w>，</w>
+      </prd>
+    </xj>
+    <xj>
+      <sbj>
+        <x />
+      </sbj>
+      <prd scp="V">
+        <v sen="001">可以</v>
+      </prd>
+      <cc fun="SYN" />
+      <prd scp="VO">
+        <v sen="101">看</v>
+      </prd>
+      <obj>
+        <n sen="001">冰灯</n>
+        <w>，</w>
+      </obj>
+    </xj>
+    <xj>
+      <sbj>
+        <x />
+      </sbj>
+      <adv>
+        <d sen="002">还</d>
+      </adv>
+      <prd scp="V">
+        <v sen="001">可以</v>
+      </prd>
+      <cc fun="SYN" />
+      <prd scp="V">
+        <v sen="001">滑雪</v>
+        <w>。</w>
+      </prd>
+    </xj>
+  </ju>
+  <ju id="10" txt="现在是夏天，你怎么说起冬天的事儿来了？">
+    <xj>
+      <sbj>
+        <t sen="001">现在</t>
+      </sbj>
+      <prd scp="VO">
+        <v sen="203">是</v>
+      </prd>
+      <obj>
+        <n sen="001">夏天</n>
+        <w>，</w>
+      </obj>
+    </xj>
+    <xj>
+      <sbj>
+        <r sen="001">你</r>
+      </sbj>
+      <adv>
+        <r sen="001">怎么</r>
+      </adv>
+      <prd scp="VOC">
+        <v mod="v←v">
+          <v sen="101">说</v>
+          <v sen="104">起</v>
+        </v>
+      </prd>
+      <obj>
+        <att>
+          <n sen="001">冬天</n>
+          <uu>
+            <u sen="001">的</u>
+          </uu>
+        </att>
+        <n>事儿</n>
+      </obj>
+      <cmp>
+        <v sen="006">来</v>
+      </cmp>
+      <uv>
+        <u sen="002">了</u>
+        <w>？</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="11" txt="你忘了吗？">
+    <xj>
+      <sbj>
+        <r sen="001">你</r>
+      </sbj>
+      <prd scp="V">
+        <v sen="001">忘</v>
+      </prd>
+      <uv>
+        <u mod="u◇u">
+          <u sen="002">了</u>
+          <u sen="201">吗</u>
+        </u>
+        <w>？</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="12" txt="我叫“冬生”，我是冬天生的呀。">
+    <xj>
+      <sbj>
+        <r sen="001">我</r>
+      </sbj>
+      <prd scp="VO">
+        <v sen="004">叫</v>
+      </prd>
+      <obj>
+        <w>“冬生”</w>
+        <w>，</w>
+      </obj>
+    </xj>
+    <xj>
+      <sbj>
+        <r sen="001">我</r>
+      </sbj>
+      <prd scp="V">
+        <v sen="201">是</v>
+      </prd>
+      <cc fun="SYN" />
+      <adv>
+        <n sen="001">冬天</n>
+      </adv>
+      <prd scp="V">
+        <v mod="v-u">
+          <v sen="001">生</v>
+          <u sen="002">的</u>
+        </v>
+      </prd>
+      <uv>
+        <u sen="101">呀</u>
+        <w>。</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="1" txt="（陈晓红和李冬生商量假日旅游计划。）">
+    <xj>
+      <sbj>
+        <w>（</w>
+        <n>陈晓红</n>
+        <cc fun="COO">
+          <c sen="103">和</c>
+        </cc>
+        <n>李冬生</n>
+      </sbj>
+      <prd scp="VO">
+        <v sen="001">商量</v>
+      </prd>
+      <obj>
+        <att>
+          <n sen="001">假日</n>
+        </att>
+        <n mod="v2↗n2">
+          <v sen="001">旅游</v>
+          <n sen="001">计划</n>
+        </n>
+        <w>。</w>
+        <w>）</w>
+      </obj>
+    </xj>
+  </ju>
+  <ju id="2" txt="这个假期比去年长，可以好好儿出去玩儿一玩儿了。">
+    <xj>
+      <sbj>
+        <att>
+          <r sen="001">这个</r>
+        </att>
+        <n sen="001">假期</n>
+      </sbj>
+      <adv>
+        <pp>
+          <p sen="009">比</p>
+        </pp>
+        <t sen="001">去年</t>
+      </adv>
+      <prd scp="V">
+        <a sen="001">长</a>
+        <w>，</w>
+      </prd>
+    </xj>
+    <xj>
+      <sbj>
+        <x />
+      </sbj>
+      <prd scp="V">
+        <v sen="001">可以</v>
+      </prd>
+      <cc fun="SYN" />
+      <adv>
+        <d mod="d2-u">
+          <d sen="002">好好</d>
+          <u>儿</u>
+        </d>
+      </adv>
+      <prd scp="V">
+        <v sen="001">出去</v>
+      </prd>
+      <cc fun="SER" />
+      <prd scp="V">
+        <v mod="v2·m·v2">
+          <v>玩儿</v>
+          <m sen="006">一</m>
+          <v>玩儿</v>
+        </v>
+      </prd>
+      <uv>
+        <u sen="002">了</u>
+        <w>。</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="3" txt="咱们去上海怎么样？">
+    <xj>
+      <sbj>
+        <sbj>
+          <r sen="001">咱们</r>
+        </sbj>
+        <prd scp="VO">
+          <v sen="001">去</v>
+        </prd>
+        <obj>
+          <n>上海</n>
+        </obj>
+      </sbj>
+      <prd scp="V">
+        <r sen="001">怎么样</r>
+        <w>？</w>
+      </prd>
+    </xj>
+  </ju>
+  <ju id="4" txt="夏天去南方旅游不太舒服，那边的天气又闷又热。">
+    <xj>
+      <adv>
+        <n sen="001">夏天</n>
+      </adv>
+      <sbj>
+        <prd scp="VO">
+          <v sen="001">去</v>
+        </prd>
+        <obj>
+          <n sen="002">南方</n>
+        </obj>
+        <cc fun="SER" />
+        <prd scp="V">
+          <v sen="001">旅游</v>
+        </prd>
+      </sbj>
+      <adv>
+        <d sen="001">不</d>
+      </adv>
+      <adv>
+        <d sen="004">太</d>
+      </adv>
+      <prd scp="V">
+        <a sen="001">舒服</a>
+        <w>，</w>
+      </prd>
+    </xj>
+    <xj>
+      <sbj>
+        <att>
+          <n mod="r◇n">
+            <r sen="201">那</r>
+            <n sen="101">边</n>
+          </n>
+          <uu>
+            <u sen="001">的</u>
+          </uu>
+        </att>
+        <n sen="001">天气</n>
+      </sbj>
+      <adv>
+        <d sen="002">又</d>
+      </adv>
+      <prd scp="V">
+        <a sen="001">闷</a>
+      </prd>
+      <cc fun="UNI" />
+      <adv>
+        <d sen="002">又</d>
+      </adv>
+      <prd scp="V">
+        <a sen="002">热</a>
+        <w>。</w>
+      </prd>
+    </xj>
+  </ju>
+  <ju id="5" txt="是吗？">
+    <xj>
+      <sbj>
+        <x />
+      </sbj>
+      <prd scp="V">
+        <v sen="201">是</v>
+      </prd>
+      <uv>
+        <u sen="201">吗</u>
+        <w>？</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="6" txt="温度比北京高吧？">
+    <xj>
+      <sbj>
+        <n sen="001">温度</n>
+      </sbj>
+      <adv>
+        <pp>
+          <p sen="009">比</p>
+        </pp>
+        <n>北京</n>
+      </adv>
+      <prd scp="V">
+        <a sen="004">高</a>
+      </prd>
+      <uv>
+        <u sen="203">吧</u>
+        <w>？</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="7" txt="温度不比北京高，可是湿度很大。">
+    <xj>
+      <sbj>
+        <n sen="001">温度</n>
+      </sbj>
+      <adv>
+        <d sen="001">不</d>
+      </adv>
+      <adv>
+        <pp>
+          <p sen="009">比</p>
+        </pp>
+        <n>北京</n>
+      </adv>
+      <prd scp="V">
+        <a sen="004">高</a>
+        <w>，</w>
+      </prd>
+    </xj>
+    <xj>
+      <cc>
+        <c sen="001">可是</c>
+      </cc>
+      <sbj>
+        <n sen="001">湿度</n>
+      </sbj>
+      <adv>
+        <d sen="001">很</d>
+      </adv>
+      <prd scp="V">
+        <a sen="001">大</a>
+        <w>。</w>
+      </prd>
+    </xj>
+  </ju>
+  <ju id="8" txt="那咱们去哈尔滨吧，那儿一定比北京凉快多了。">
+    <xj>
+      <cc>
+        <c sen="203">那</c>
+      </cc>
+      <sbj>
+        <r sen="001">咱们</r>
+      </sbj>
+      <prd scp="VO">
+        <v sen="001">去</v>
+      </prd>
+      <obj>
+        <n>哈尔滨</n>
+      </obj>
+      <uv>
+        <u sen="201">吧</u>
+        <w>，</w>
+      </uv>
+    </xj>
+    <xj>
+      <sbj>
+        <n sen="001">那儿</n>
+      </sbj>
+      <adv>
+        <d sen="003">一定</d>
+      </adv>
+      <adv>
+        <pp>
+          <p sen="009">比</p>
+        </pp>
+        <n>北京</n>
+      </adv>
+      <prd scp="VC">
+        <a sen="001">凉快</a>
+      </prd>
+      <cmp>
+        <a sen="005">多</a>
+      </cmp>
+      <uv>
+        <u sen="002">了</u>
+        <w>。</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="9" txt="哈尔滨应该冬天去，可以看冰灯，还可以滑雪。">
+    <xj>
+      <sbj>
+        <n>哈尔滨</n>
+      </sbj>
+      <prd scp="V">
+        <v sen="001">应该</v>
+      </prd>
+      <cc fun="SYN" />
+      <adv>
+        <n sen="001">冬天</n>
+      </adv>
+      <prd scp="V">
+        <v sen="001">去</v>
+        <w>，</w>
+      </prd>
+    </xj>
+    <xj>
+      <sbj>
+        <x />
+      </sbj>
+      <prd scp="V">
+        <v sen="001">可以</v>
+      </prd>
+      <cc fun="SYN" />
+      <prd scp="VO">
+        <v sen="101">看</v>
+      </prd>
+      <obj>
+        <n sen="001">冰灯</n>
+        <w>，</w>
+      </obj>
+    </xj>
+    <xj>
+      <sbj>
+        <x />
+      </sbj>
+      <adv>
+        <d sen="002">还</d>
+      </adv>
+      <prd scp="V">
+        <v sen="001">可以</v>
+      </prd>
+      <cc fun="SYN" />
+      <prd scp="V">
+        <v sen="001">滑雪</v>
+        <w>。</w>
+      </prd>
+    </xj>
+  </ju>
+  <ju id="10" txt="现在是夏天，你怎么说起冬天的事儿来了？">
+    <xj>
+      <sbj>
+        <t sen="001">现在</t>
+      </sbj>
+      <prd scp="VO">
+        <v sen="203">是</v>
+      </prd>
+      <obj>
+        <n sen="001">夏天</n>
+        <w>，</w>
+      </obj>
+    </xj>
+    <xj>
+      <sbj>
+        <r sen="001">你</r>
+      </sbj>
+      <adv>
+        <r sen="001">怎么</r>
+      </adv>
+      <prd scp="VOC">
+        <v mod="v←v">
+          <v sen="101">说</v>
+          <v sen="104">起</v>
+        </v>
+      </prd>
+      <obj>
+        <att>
+          <n sen="001">冬天</n>
+          <uu>
+            <u sen="001">的</u>
+          </uu>
+        </att>
+        <n>事儿</n>
+      </obj>
+      <cmp>
+        <v sen="006">来</v>
+      </cmp>
+      <uv>
+        <u sen="002">了</u>
+        <w>？</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="11" txt="你忘了吗？">
+    <xj>
+      <sbj>
+        <r sen="001">你</r>
+      </sbj>
+      <prd scp="V">
+        <v sen="001">忘</v>
+      </prd>
+      <uv>
+        <u mod="u◇u">
+          <u sen="002">了</u>
+          <u sen="201">吗</u>
+        </u>
+        <w>？</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="12" txt="我叫“冬生”，我是冬天生的呀。">
+    <xj>
+      <sbj>
+        <r sen="001">我</r>
+      </sbj>
+      <prd scp="VO">
+        <v sen="004">叫</v>
+      </prd>
+      <obj>
+        <w>“冬生”</w>
+        <w>，</w>
+      </obj>
+    </xj>
+    <xj>
+      <sbj>
+        <r sen="001">我</r>
+      </sbj>
+      <prd scp="V">
+        <v sen="201">是</v>
+      </prd>
+      <cc fun="SYN" />
+      <adv>
+        <n sen="001">冬天</n>
+      </adv>
+      <prd scp="V">
+        <v mod="v-u">
+          <v sen="001">生</v>
+          <u sen="002">的</u>
+        </v>
+      </prd>
+      <uv>
+        <u sen="101">呀</u>
+        <w>。</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="1" txt="（陈晓红和李冬生商量假日旅游计划。）">
+    <xj>
+      <sbj>
+        <w>（</w>
+        <n>陈晓红</n>
+        <cc fun="COO">
+          <c sen="103">和</c>
+        </cc>
+        <n>李冬生</n>
+      </sbj>
+      <prd scp="VO">
+        <v sen="001">商量</v>
+      </prd>
+      <obj>
+        <att>
+          <n sen="001">假日</n>
+        </att>
+        <n mod="v2↗n2">
+          <v sen="001">旅游</v>
+          <n sen="001">计划</n>
+        </n>
+        <w>。</w>
+        <w>）</w>
+      </obj>
+    </xj>
+  </ju>
+  <ju id="2" txt="这个假期比去年长，可以好好儿出去玩儿一玩儿了。">
+    <xj>
+      <sbj>
+        <att>
+          <r sen="001">这个</r>
+        </att>
+        <n sen="001">假期</n>
+      </sbj>
+      <adv>
+        <pp>
+          <p sen="009">比</p>
+        </pp>
+        <t sen="001">去年</t>
+      </adv>
+      <prd scp="V">
+        <a sen="001">长</a>
+        <w>，</w>
+      </prd>
+    </xj>
+    <xj>
+      <sbj>
+        <x />
+      </sbj>
+      <prd scp="V">
+        <v sen="001">可以</v>
+      </prd>
+      <cc fun="SYN" />
+      <adv>
+        <d mod="d2-u">
+          <d sen="002">好好</d>
+          <u>儿</u>
+        </d>
+      </adv>
+      <prd scp="V">
+        <v sen="001">出去</v>
+      </prd>
+      <cc fun="SER" />
+      <prd scp="V">
+        <v mod="v2·m·v2">
+          <v>玩儿</v>
+          <m sen="006">一</m>
+          <v>玩儿</v>
+        </v>
+      </prd>
+      <uv>
+        <u sen="002">了</u>
+        <w>。</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="3" txt="咱们去上海怎么样？">
+    <xj>
+      <sbj>
+        <sbj>
+          <r sen="001">咱们</r>
+        </sbj>
+        <prd scp="VO">
+          <v sen="001">去</v>
+        </prd>
+        <obj>
+          <n>上海</n>
+        </obj>
+      </sbj>
+      <prd scp="V">
+        <r sen="001">怎么样</r>
+        <w>？</w>
+      </prd>
+    </xj>
+  </ju>
+  <ju id="4" txt="夏天去南方旅游不太舒服，那边的天气又闷又热。">
+    <xj>
+      <adv>
+        <n sen="001">夏天</n>
+      </adv>
+      <sbj>
+        <prd scp="VO">
+          <v sen="001">去</v>
+        </prd>
+        <obj>
+          <n sen="002">南方</n>
+        </obj>
+        <cc fun="SER" />
+        <prd scp="V">
+          <v sen="001">旅游</v>
+        </prd>
+      </sbj>
+      <adv>
+        <d sen="001">不</d>
+      </adv>
+      <adv>
+        <d sen="004">太</d>
+      </adv>
+      <prd scp="V">
+        <a sen="001">舒服</a>
+        <w>，</w>
+      </prd>
+    </xj>
+    <xj>
+      <sbj>
+        <att>
+          <n mod="r◇n">
+            <r sen="201">那</r>
+            <n sen="101">边</n>
+          </n>
+          <uu>
+            <u sen="001">的</u>
+          </uu>
+        </att>
+        <n sen="001">天气</n>
+      </sbj>
+      <adv>
+        <d sen="002">又</d>
+      </adv>
+      <prd scp="V">
+        <a sen="001">闷</a>
+      </prd>
+      <cc fun="UNI" />
+      <adv>
+        <d sen="002">又</d>
+      </adv>
+      <prd scp="V">
+        <a sen="002">热</a>
+        <w>。</w>
+      </prd>
+    </xj>
+  </ju>
+  <ju id="5" txt="是吗？">
+    <xj>
+      <sbj>
+        <x />
+      </sbj>
+      <prd scp="V">
+        <v sen="201">是</v>
+      </prd>
+      <uv>
+        <u sen="201">吗</u>
+        <w>？</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="6" txt="温度比北京高吧？">
+    <xj>
+      <sbj>
+        <n sen="001">温度</n>
+      </sbj>
+      <adv>
+        <pp>
+          <p sen="009">比</p>
+        </pp>
+        <n>北京</n>
+      </adv>
+      <prd scp="V">
+        <a sen="004">高</a>
+      </prd>
+      <uv>
+        <u sen="203">吧</u>
+        <w>？</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="7" txt="温度不比北京高，可是湿度很大。">
+    <xj>
+      <sbj>
+        <n sen="001">温度</n>
+      </sbj>
+      <adv>
+        <d sen="001">不</d>
+      </adv>
+      <adv>
+        <pp>
+          <p sen="009">比</p>
+        </pp>
+        <n>北京</n>
+      </adv>
+      <prd scp="V">
+        <a sen="004">高</a>
+        <w>，</w>
+      </prd>
+    </xj>
+    <xj>
+      <cc>
+        <c sen="001">可是</c>
+      </cc>
+      <sbj>
+        <n sen="001">湿度</n>
+      </sbj>
+      <adv>
+        <d sen="001">很</d>
+      </adv>
+      <prd scp="V">
+        <a sen="001">大</a>
+        <w>。</w>
+      </prd>
+    </xj>
+  </ju>
+  <ju id="8" txt="那咱们去哈尔滨吧，那儿一定比北京凉快多了。">
+    <xj>
+      <cc>
+        <c sen="203">那</c>
+      </cc>
+      <sbj>
+        <r sen="001">咱们</r>
+      </sbj>
+      <prd scp="VO">
+        <v sen="001">去</v>
+      </prd>
+      <obj>
+        <n>哈尔滨</n>
+      </obj>
+      <uv>
+        <u sen="201">吧</u>
+        <w>，</w>
+      </uv>
+    </xj>
+    <xj>
+      <sbj>
+        <n sen="001">那儿</n>
+      </sbj>
+      <adv>
+        <d sen="003">一定</d>
+      </adv>
+      <adv>
+        <pp>
+          <p sen="009">比</p>
+        </pp>
+        <n>北京</n>
+      </adv>
+      <prd scp="VC">
+        <a sen="001">凉快</a>
+      </prd>
+      <cmp>
+        <a sen="005">多</a>
+      </cmp>
+      <uv>
+        <u sen="002">了</u>
+        <w>。</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="9" txt="哈尔滨应该冬天去，可以看冰灯，还可以滑雪。">
+    <xj>
+      <sbj>
+        <n>哈尔滨</n>
+      </sbj>
+      <prd scp="V">
+        <v sen="001">应该</v>
+      </prd>
+      <cc fun="SYN" />
+      <adv>
+        <n sen="001">冬天</n>
+      </adv>
+      <prd scp="V">
+        <v sen="001">去</v>
+        <w>，</w>
+      </prd>
+    </xj>
+    <xj>
+      <sbj>
+        <x />
+      </sbj>
+      <prd scp="V">
+        <v sen="001">可以</v>
+      </prd>
+      <cc fun="SYN" />
+      <prd scp="VO">
+        <v sen="101">看</v>
+      </prd>
+      <obj>
+        <n sen="001">冰灯</n>
+        <w>，</w>
+      </obj>
+    </xj>
+    <xj>
+      <sbj>
+        <x />
+      </sbj>
+      <adv>
+        <d sen="002">还</d>
+      </adv>
+      <prd scp="V">
+        <v sen="001">可以</v>
+      </prd>
+      <cc fun="SYN" />
+      <prd scp="V">
+        <v sen="001">滑雪</v>
+        <w>。</w>
+      </prd>
+    </xj>
+  </ju>
+  <ju id="10" txt="现在是夏天，你怎么说起冬天的事儿来了？">
+    <xj>
+      <sbj>
+        <t sen="001">现在</t>
+      </sbj>
+      <prd scp="VO">
+        <v sen="203">是</v>
+      </prd>
+      <obj>
+        <n sen="001">夏天</n>
+        <w>，</w>
+      </obj>
+    </xj>
+    <xj>
+      <sbj>
+        <r sen="001">你</r>
+      </sbj>
+      <adv>
+        <r sen="001">怎么</r>
+      </adv>
+      <prd scp="VOC">
+        <v mod="v←v">
+          <v sen="101">说</v>
+          <v sen="104">起</v>
+        </v>
+      </prd>
+      <obj>
+        <att>
+          <n sen="001">冬天</n>
+          <uu>
+            <u sen="001">的</u>
+          </uu>
+        </att>
+        <n>事儿</n>
+      </obj>
+      <cmp>
+        <v sen="006">来</v>
+      </cmp>
+      <uv>
+        <u sen="002">了</u>
+        <w>？</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="11" txt="你忘了吗？">
+    <xj>
+      <sbj>
+        <r sen="001">你</r>
+      </sbj>
+      <prd scp="V">
+        <v sen="001">忘</v>
+      </prd>
+      <uv>
+        <u mod="u◇u">
+          <u sen="002">了</u>
+          <u sen="201">吗</u>
+        </u>
+        <w>？</w>
+      </uv>
+    </xj>
+  </ju>
+  <ju id="12" txt="我叫“冬生”，我是冬天生的呀。">
+    <xj>
+      <sbj>
+        <r sen="001">我</r>
+      </sbj>
+      <prd scp="VO">
+        <v sen="004">叫</v>
+      </prd>
+      <obj>
+        <w>“冬生”</w>
+        <w>，</w>
+      </obj>
+    </xj>
+    <xj>
+      <sbj>
+        <r sen="001">我</r>
+      </sbj>
+      <prd scp="V">
+        <v sen="201">是</v>
+      </prd>
+      <cc fun="SYN" />
+      <adv>
+        <n sen="001">冬天</n>
+      </adv>
+      <prd scp="V">
+        <v mod="v-u">
+          <v sen="001">生</v>
+          <u sen="002">的</u>
+        </v>
+      </prd>
+      <uv>
+        <u sen="101">呀</u>
+        <w>。</w>
+      </uv>
+    </xj>
+  </ju>
+</jbw>

@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter>
+  <paras>
+    <para>
+      <ju dct="0" id="1">
+        <xj>
+          <sbj>
+            <r sen="001">谁</r>
+          </sbj>
+          <prd scp="VO">
+            <v sen="201">是</v>
+          </prd>
+          <obj>
+            <att>
+              <r sen="001">我们</r>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <n sen="001">敌人</n>
+            <w>？</w>
+          </obj>
+        </xj>
+      </ju>
+      <ju dct="0" id="2">
+        <xj upt="-1:1:s" rel="并列">
+          <sbj>
+            <r sen="001">谁</r>
+          </sbj>
+          <prd scp="VO">
+            <v sen="201">是</v>
+          </prd>
+          <obj>
+            <att>
+              <r sen="001">我们</r>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <n sen="001">朋友</n>
+            <w>？</w>
+          </obj>
+        </xj>
+      </ju>
+      <ju dct="0" id="3">
+        <xj upt="-1:1:s" rel="+接句">
+          <sbj>
+            <att>
+              <r sen="001">这个</r>
+            </att>
+            <n sen="002">问题</n>
+          </sbj>
+          <prd scp="VO">
+            <v sen="201">是</v>
+          </prd>
+          <obj>
+            <att>
+              <v sen="001">革命</v>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <n mod="a2↗n2">
+              <a sen="001">首要</a>
+              <n sen="002">问题</n>
+            </n>
+            <w>。</w>
+          </obj>
+        </xj>
+      </ju>
+      <ju dct="0" id="4">
+        <xj>
+          <sbj>
+            <att>
+              <n>中国</n>
+            </att>
+            <att>
+              <t sen="001">过去</t>
+            </att>
+            <att>
+              <r sen="001">一切</r>
+            </att>
+            <n mod="v2↗n2">
+              <v sen="001">革命</v>
+              <n sen="001">斗争</n>
+            </n>
+          </sbj>
+          <prd scp="V">
+            <sbj>
+              <n sen="001">成效</n>
+            </sbj>
+            <adv>
+              <d sen="103">甚</d>
+            </adv>
+            <prd scp="V">
+              <a sen="001">少</a>
+              <w>，</w>
+            </prd>
+          </prd>
+        </xj>
+        <xj upt="1:s" rel="因果" sub="↑">
+          <sbj>
+            <att>
+              <r sen="101">其</r>
+            </att>
+            <n mod="a2↗n2">
+              <a sen="003">基本</a>
+              <n sen="001">原因</n>
+            </n>
+          </sbj>
+          <adv>
+            <d sen="108">就</d>
+          </adv>
+          <prd scp="VO">
+            <v sen="201">是</v>
+          </prd>
+          <obj>
+            <pp>
+              <p sen="001">因为</p>
+            </pp>
+            <adv>
+              <d sen="001">不</d>
+            </adv>
+            <prd scp="V">
+              <v sen="104">能</v>
+            </prd>
+            <cc fun="SYN" />
+            <prd scp="VO">
+              <v sen="001">团结</v>
+            </prd>
+            <obj>
+              <att>
+                <a sen="001">真正</a>
+                <uu>
+                  <u sen="001">的</u>
+                </uu>
+              </att>
+              <n sen="001">朋友</n>
+              <w>，</w>
+            </obj>
+          </obj>
+        </xj>
+        <xj coh="⋮" upt="2:5" rel="顺承">
+          <cc>
+            <c sen="004">以</c>
+          </cc>
+          <prd scp="VO">
+            <v sen="001">攻击</v>
+          </prd>
+          <obj>
+            <att>
+              <a sen="001">真正</a>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <n sen="001">敌人</n>
+            <w>。</w>
+          </obj>
+        </xj>
+      </ju>
+      <ju dct="0" id="5">
+        <xj>
+          <sbj>
+            <n mod="v2↗n">
+              <v sen="001">革命</v>
+              <n sen="001">党</n>
+            </n>
+          </sbj>
+          <prd scp="VO">
+            <v sen="201">是</v>
+          </prd>
+          <obj>
+            <att>
+              <n sen="001">群众</n>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <n sen="002">向导</n>
+            <w>，</w>
+          </obj>
+        </xj>
+        <xj upt="1:s" rel="顺承">
+          <sbj>
+            <pp>
+              <p sen="007">在</p>
+            </pp>
+            <n sen="001">革命</n>
+            <ff>
+              <f sen="003">中</f>
+            </ff>
+          </sbj>
+          <prd scp="VO">
+            <v mod="d→v">
+              <d sen="001">未</d>
+              <v sen="002">有</v>
+            </v>
+          </prd>
+          <obj>
+            <sbj>
+              <n mod="v2↗n">
+                <v sen="001">革命</v>
+                <n sen="001">党</n>
+              </n>
+            </sbj>
+            <prd scp="VO">
+              <v mod="v←a-u">
+                <v sen="006">领</v>
+                <a sen="005">错</a>
+                <u sen="001">了</u>
+              </v>
+            </prd>
+            <obj>
+              <n sen="001">路</n>
+            </obj>
+            <cc fun="UNI">
+              <c sen="001">而</c>
+            </cc>
+            <sbj>
+              <n sen="001">革命</n>
+            </sbj>
+            <adv>
+              <d sen="001">不</d>
+            </adv>
+            <prd scp="V">
+              <v sen="002">失败</v>
+            </prd>
+            <uv>
+              <u sen="002">的</u>
+              <w>。</w>
+            </uv>
+          </obj>
+        </xj>
+      </ju>
+      <ju dct="0" id="6">
+        <xj>
+          <sbj>
+            <att>
+              <r sen="001">我们</r>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <n sen="001">革命</n>
+          </sbj>
+          <prd scp="V">
+            <v sen="204">要</v>
+          </prd>
+          <cc fun="SYN" />
+          <prd scp="VO">
+            <v sen="001">有</v>
+          </prd>
+          <obj>
+            <att>
+              <adv>
+                <d sen="001">不</d>
+              </adv>
+              <prd scp="VO">
+                <v mod="v←a">
+                  <v sen="006">领</v>
+                  <a sen="005">错</a>
+                </v>
+              </prd>
+              <obj>
+                <n sen="001">路</n>
+              </obj>
+              <cc fun="UNI">
+                <c sen="103">和</c>
+              </cc>
+              <adv>
+                <d sen="003">一定</d>
+              </adv>
+              <prd scp="V">
+                <v sen="001">成功</v>
+              </prd>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <n sen="003">把握</n>
+            <w>，</w>
+          </obj>
+        </xj>
+        <xj upt="1:s" rel="假设" sub="↑">
+          <sbj>
+            <x />
+          </sbj>
+          <prd scp="V">
+            <v sen="001">不可</v>
+          </prd>
+          <cc fun="SYN" />
+          <adv>
+            <d sen="001">不</d>
+          </adv>
+          <prd scp="VO">
+            <v sen="001">注意</v>
+          </prd>
+          <obj>
+            <prd scp="VO">
+              <v sen="001">团结</v>
+            </prd>
+            <obj>
+              <att>
+                <r sen="001">我们</r>
+                <uu>
+                  <u sen="001">的</u>
+                </uu>
+              </att>
+              <att>
+                <a sen="001">真正</a>
+                <uu>
+                  <u sen="001">的</u>
+                </uu>
+              </att>
+              <n sen="001">朋友</n>
+              <w>，</w>
+            </obj>
+          </obj>
+        </xj>
+        <xj coh="⋮" upt="2:4" rel="顺承">
+          <cc>
+            <c sen="004">以</c>
+          </cc>
+          <prd scp="VO">
+            <v sen="001">攻击</v>
+          </prd>
+          <obj>
+            <att>
+              <r sen="001">我们</r>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <att>
+              <a sen="001">真正</a>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <n sen="001">敌人</n>
+            <w>。</w>
+          </obj>
+        </xj>
+      </ju>
+      <ju dct="0" id="7">
+        <xj>
+          <sbj>
+            <r sen="001">我们</r>
+          </sbj>
+          <prd scp="V">
+            <v sen="204">要</v>
+          </prd>
+          <cc fun="SYN" />
+          <prd scp="VO">
+            <v sen="001">分辨</v>
+          </prd>
+          <obj>
+            <att>
+              <a sen="001">真正</a>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <n mod="n…n">
+              <n sen="002">敌</n>
+              <n sen="001">友</n>
+            </n>
+            <w>，</w>
+          </obj>
+        </xj>
+        <xj coh="⋮" upt="1:1" rel="顺承">
+          <prd scp="V">
+            <v sen="001">不可</v>
+          </prd>
+          <cc fun="SYN" />
+          <adv>
+            <d sen="001">不</d>
+          </adv>
+          <adv>
+            <pp>
+              <p sen="008">将</p>
+            </pp>
+            <att>
+              <att>
+                <n mod="n2↗n2">
+                  <n>中国</n>
+                  <n sen="001">社会</n>
+                </n>
+              </att>
+              <att>
+                <r sen="101">各</r>
+              </att>
+              <n sen="003">阶级</n>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <n mod="n2↗n2">
+              <n sen="001">经济</n>
+              <n sen="001">地位</n>
+            </n>
+            <cc fun="COO">
+              <c>及其</c>
+            </cc>
+            <att>
+              <pp>
+                <p sen="001">对于</p>
+              </pp>
+              <n sen="001">革命</n>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <n sen="002">态度</n>
+            <w>，</w>
+          </adv>
+          <prd scp="VO">
+            <v sen="102">作</v>
+          </prd>
+          <obj>
+            <att>
+              <m mod="m-q">
+                <m sen="001">一</m>
+                <q sen="101">个</q>
+              </m>
+            </att>
+            <att>
+              <a sen="002">大概</a>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <n sen="001">分析</n>
+            <w>。</w>
+          </obj>
+        </xj>
+      </ju>
+    </para>
+    <para>
+      <ju dct="0" id="1">
+        <xj>
+          <sbj>
+            <att>
+              <att>
+                <n mod="n2↗n2">
+                  <n>中国</n>
+                  <n sen="001">社会</n>
+                </n>
+              </att>
+              <att>
+                <r sen="101">各</r>
+              </att>
+              <n sen="003">阶级</n>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <n sen="001">情况</n>
+          </sbj>
+          <prd scp="VO">
+            <v sen="202">是</v>
+          </prd>
+          <obj>
+            <r sen="001">怎样</r>
+            <un>
+              <u sen="002">的</u>
+            </un>
+          </obj>
+          <uv>
+            <u sen="004">呢</u>
+            <w>？</w>
+          </uv>
+        </xj>
+      </ju>
+    </para>
+    <para>
+      <ju dct="0" id="1">
+        <xj>
+          <n mod="n2↗n2">
+            <n sen="001">地主</n>
+            <n sen="003">阶级</n>
+          </n>
+          <cc fun="COO">
+            <c sen="103">和</c>
+          </cc>
+          <n sen="001">买办阶级</n>
+          <w>。</w>
+        </xj>
+      </ju>
+      <ju dct="0" id="2">
+        <xj>
+          <adv>
+            <pp>
+              <p sen="007">在</p>
+            </pp>
+            <att>
+              <sbj>
+                <n sen="002">经济</n>
+              </sbj>
+              <prd scp="V">
+                <a sen="003">落后</a>
+              </prd>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <att>
+              <n sen="001">半殖民地</n>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <n>中国</n>
+            <w>，</w>
+          </adv>
+          <sbj>
+            <n mod="n2↗n2">
+              <n sen="001">地主</n>
+              <n sen="003">阶级</n>
+            </n>
+            <cc fun="COO">
+              <c sen="103">和</c>
+            </cc>
+            <n sen="001">买办阶级</n>
+          </sbj>
+          <adv>
+            <d sen="002">完全</d>
+          </adv>
+          <prd scp="VO">
+            <v sen="201">是</v>
+          </prd>
+          <obj>
+            <att>
+              <n mod="a2↗n4">
+                <a sen="001">国际</a>
+                <n sen="001">资产阶级</n>
+              </n>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <n sen="002">附庸</n>
+            <w>，</w>
+          </obj>
+        </xj>
+        <xj upt="1:s" rel="解说">
+          <sbj>
+            <att>
+              <r sen="101">其</r>
+            </att>
+            <n sen="001">生存</n>
+            <cc fun="COO">
+              <c sen="103">和</c>
+            </cc>
+            <n sen="001">发展</n>
+            <w>，</w>
+          </sbj>
+          <prd scp="V">
+            <v sen="202">是</v>
+          </prd>
+          <cc fun="SYN" />
+          <prd scp="VO">
+            <v mod="v2-u">
+              <v sen="002">附属</v>
+              <u sen="008">于</u>
+            </v>
+          </prd>
+          <obj>
+            <n sen="002">帝国主义</n>
+          </obj>
+          <uv>
+            <u sen="004">的</u>
+            <w>。</w>
+          </uv>
+        </xj>
+      </ju>
+      <ju dct="0" id="3">
+        <xj>
+          <sbj>
+            <att>
+              <r sen="001">这些</r>
+            </att>
+            <n sen="003">阶级</n>
+          </sbj>
+          <prd scp="VO">
+            <v sen="005">代表</v>
+          </prd>
+          <obj>
+            <att>
+              <n>中国</n>
+            </att>
+            <att>
+              <adv>
+                <d sen="001">最</d>
+              </adv>
+              <prd scp="V">
+                <a sen="003">落后</a>
+              </prd>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <att>
+              <cc>
+                <c sen="103">和</c>
+              </cc>
+              <adv>
+                <d sen="001">最</d>
+              </adv>
+              <prd scp="V">
+                <a sen="001">反动</a>
+              </prd>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <n sen="001">生产关系</n>
+            <w>，</w>
+          </obj>
+        </xj>
+        <xj coh="⋮" upt="1:2" rel="顺承">
+          <prd scp="VO">
+            <v sen="001">阻碍</v>
+          </prd>
+          <obj>
+            <att>
+              <att>
+                <n>中国</n>
+              </att>
+              <n sen="001">生产力</n>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <n sen="001">发展</n>
+            <w>。</w>
+          </obj>
+        </xj>
+      </ju>
+      <ju dct="0" id="4">
+        <xj upt="-1:1:s" rel="+承主">
+          <sbj>
+            <r sen="001">他们</r>
+          </sbj>
+          <adv>
+            <pp>
+              <p sen="102">和</p>
+            </pp>
+            <att>
+              <n mod="n2↗n2">
+                <n>中国</n>
+                <n sen="001">革命</n>
+              </n>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <n sen="001">目的</n>
+          </adv>
+          <adv>
+            <d sen="002">完全</d>
+          </adv>
+          <adv>
+            <d sen="001">不</d>
+          </adv>
+          <prd scp="V">
+            <v sen="001">相容</v>
+            <w>。</w>
+          </prd>
+        </xj>
+      </ju>
+      <ju dct="0" id="5">
+        <xj>
+          <cc>
+            <c mod="d2-u">
+              <d sen="002">特别</d>
+              <u>是</u>
+            </c>
+          </cc>
+          <n mod="a↗n2↗n2">
+            <a sen="001">大</a>
+            <n sen="001">地主</n>
+            <n sen="003">阶级</n>
+          </n>
+          <cc fun="COO">
+            <c sen="103">和</c>
+          </cc>
+          <n mod="a↗n4">
+            <a sen="001">大</a>
+            <n sen="001">买办阶级</n>
+          </n>
+          <w>，</w>
+        </xj>
+        <xj upt="1:s" rel="解说">
+          <sbj>
+            <r sen="001">他们</r>
+          </sbj>
+          <adv>
+            <d sen="002">始终</d>
+          </adv>
+          <prd scp="VC">
+            <v sen="001">站</v>
+          </prd>
+          <cmp>
+            <pp>
+              <p sen="007">在</p>
+            </pp>
+            <n sen="002">帝国主义</n>
+            <ff>
+              <f sen="001">一边</f>
+              <w>，</w>
+            </ff>
+          </cmp>
+        </xj>
+        <xj coh="⋮" upt="2:1" rel="顺承">
+          <prd scp="VO">
+            <v sen="201">是</v>
+          </prd>
+          <obj>
+            <att>
+              <a sen="003">极端</a>
+              <uu>
+                <u sen="001">的</u>
+              </uu>
+            </att>
+            <n mod="a3↗n">
+              <a sen="001">反革命</a>
+              <n sen="101">派</n>
+            </n>
+            <w>。</w>
+          </obj>
+        </xj>
+      </ju>
+      <ju dct="0" id="6">
+        <xj upt="-1:2:s" rel="顺承">
+          <sbj>
+            <att>
+              <r sen="101">其</r>
+            </att>
+            <n mod="n2↗n2">
+              <n sen="001">政治</n>
+              <n sen="002">代表</n>
+            </n>
+          </sbj>
+          <prd scp="VO">
+            <v sen="201">是</v>
+          </prd>
+          <obj>
+            <n mod="n2↗n2↗n">
+              <n sen="001">国家</n>
+              <n sen="001">主义</n>
+              <n sen="101">派</n>
+            </n>
+            <cc fun="COO">
+              <c sen="103">和</c>
+            </cc>
+            <n mod="n3↗n2">
+              <n sen="001">国民党</n>
+              <n sen="001">右派</n>
+            </n>
+            <w>。</w>
+          </obj>
+        </xj>
+      </ju>
+    </para>
+  </paras>
+</chapter>

@@ -1,0 +1,340 @@
+// region SbjSep
+.sbj-sep,
+.sbj-sep-shift {
+  height: 60px;
+  width: 23px;
+  position: relative;
+  right: 7px;
+  border-right: 10px double #000;
+  align-self: end;
+}
+
+.sbj-sep-shift::after {
+  content: 'S';
+  height: 50px;
+  width: 23px;
+  font-size: 30px;
+  color: #000;
+  position: absolute;
+  margin-top: 6px;
+  margin-left: 8px;
+}
+// endregion
+
+// region FillLifter
+
+.fold-circle-lifter {
+  content: url('/assets/fold-circle.svg');
+  pointer-events: auto;
+  position: absolute;
+  bottom: 5px;
+  right: 43px;
+  width: 0px;
+  height: 0px;
+}
+
+.unfold-circle-lifter {
+  content: url('/assets/unfold-circle.svg');
+  pointer-events: auto;
+  position: absolute;
+  bottom: 10px;
+  right: 13px;
+  width: 0px;
+  height: 0px;
+}
+
+.fill-lifter,
+.fill-lifter-unfold {
+  width: 9px;
+  min-height: 9px;
+  // height: calc(100% - 20px);
+  margin-bottom: 3px;
+  margin-left: 6px;
+  border-left: 5px solid #000;
+  align-self: stretch;
+  position: relative;
+  pointer-events: none;
+}
+
+.fill-lifter::before,
+.fill-lifter-unfold::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  left: -8.5px;
+  bottom: -12px;
+  border-left: 4px solid black;
+  border-top: 4px solid black;
+  transform: rotate(45deg);
+}
+
+.fill-lifter-fold {
+  width: 12px;
+  height: 0px;
+  pointer-events: none;
+
+  &::after {
+    @extend .fold-circle-lifter;
+  }
+}
+
+.fill-lifter-unfold::after {
+  @extend .unfold-circle-lifter;
+}
+// endregion
+
+// region PrdSep
+
+.syn,
+.SYN,
+.syn-l,
+.SYN-l {
+  height: 60px;
+  width: 8px;
+  position: relative;
+  align-self: end;
+  margin: 0px 8px 0px 2px;
+}
+
+.syn::after,
+.SYN::after,
+.syn-l::after,
+.SYN-l::after {
+  content: ':';
+  font-size: 40px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  position: absolute;
+  bottom: 8px;
+}
+
+.ser,
+.SER,
+.ser-l,
+.SER-l,
+.pvt,
+.PVT,
+.pvt-l,
+.PVT-l {
+  height: 60px;
+  width: 20px;
+  position: relative;
+  align-self: end;
+  margin: 0px 5px 0px 2px;
+}
+
+.ser::after,
+.SER::after,
+.ser-l::after,
+.SER-l::after {
+  content: '';
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  left: 10px;
+  transform: skewX(-13deg);
+  background: #000;
+}
+
+.pvt::before,
+.PVT::before,
+.pvt-l::before,
+.PVT-l::before {
+  content: '';
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  left: 8px;
+  transform: skewX(-13deg);
+  background: #000;
+}
+
+.pvt::after,
+.PVT::after,
+.pvt-l::after,
+.PVT-l::after {
+  content: '';
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  left: 14px;
+  transform: skewX(-13deg);
+  background: #000;
+}
+
+.uni,
+.UNI,
+.uni-l,
+.UNI-l {
+  height: 30px;
+  width: 20px;
+  position: relative;
+  align-self: end;
+  justify-self: center;
+}
+
+.uni::after,
+.UNI::after {
+  content: '';
+  height: 4px;
+  width: 20px;
+  position: absolute;
+  top: 13px;
+  left: 1px;
+  background: linear-gradient(
+    to right,
+    black 0,
+    black 5.1px,
+    transparent 5.1px,
+    transparent 6.8px
+  );
+  background-size: 7px 4px;
+}
+
+.uni-l::after,
+.UNI-l::after {
+  content: '';
+  height: 4px;
+  width: 40px;
+  position: absolute;
+  top: 13px;
+  margin-left: -10px;
+  background: linear-gradient(
+    to right,
+    black 0,
+    black 5.1px,
+    transparent 5.1px,
+    transparent 6.8px
+  );
+  background-size: 7px 4px;
+}
+// endregion
+
+// region WordFlag
+.ff,
+.pp,
+.cc,
+.uni,
+.coo,
+.COO,
+.app,
+.APP,
+.un,
+.uv {
+  height: 10px;
+  width: 25px;
+  margin-top: -6px;
+  margin-left: 8px;
+  padding-bottom: 25px;
+  position: relative;
+  grid-row: 3;
+  align-self: start;
+  justify-self: center;
+}
+
+.ff::after {
+  content: '□';
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Lucida Sans Unicode';
+  position: absolute;
+}
+
+.pp::after {
+  content: '∧';
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Lucida Sans Unicode';
+  position: absolute;
+}
+
+.app::after,
+.APP::after {
+  content: '＝';
+  font-size: 18px;
+  margin-left: -2px;
+  font-weight: bold;
+  font-family: 'Lucida Sans Unicode';
+  position: absolute;
+}
+
+.un::after {
+  content: '△';
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Lucida Sans Unicode';
+  position: absolute;
+}
+
+.uv::after {
+  content: '▽';
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Lucida Sans Unicode';
+  position: absolute;
+}
+
+.cc::after,
+.uni::after,
+.coo::after,
+.COO::after {
+  content: '•••';
+  margin-top: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Arial';
+  position: absolute;
+}
+
+.COO::after {
+  margin-left: -2px;
+}
+
+.cc::after,
+.uni::after,
+.coo::after {
+  margin-left: 0px;
+}
+// endregion WordFlag
+
+// region ObjSep
+
+.obj-sep,
+.obj-sep-shift {
+  height: 50px;
+  width: 20px;
+  position: relative;
+  left: 9px;
+  border-left: 3px solid #000;
+  align-self: end;
+}
+
+.obj-sep-shift::after {
+  content: 'S';
+  height: 50px;
+  width: 23px;
+  font-size: 30px;
+  color: #000;
+  position: absolute;
+  left: -11px;
+  top: -3px;
+}
+// endregion ObjSep
+
+// region FillDash
+.fill-dash {
+  // height: 100%;
+  width: 5px;
+  align-self: end;
+  background: linear-gradient(
+    to top,
+    black,
+    black 8px,
+    transparent 8px,
+    transparent
+  );
+  background-size: 5px 10px;
+  /*8px black then 2px transparent -> repeat this!*/
+}
+// endregion FillDash

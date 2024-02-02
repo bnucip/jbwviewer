@@ -1,0 +1,562 @@
+// app global css in SCSS form
+$grid-max-col: 999; //需要与global_variable.js中GridMaxCol一致
+$grey-5: #bdbdbd !important;
+
+.mainline {
+  grid-row: 2;
+  grid-column: 1 / #{$grid-max-col};
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: #{$grid-max-col};
+  border-bottom: 5px solid #000;
+  // margin-top: -1px;
+  height: 0px;
+  // width: 100%;
+}
+
+.mainline-sbj {
+  @extend .mainline;
+  margin-bottom: 10px;
+}
+
+.indline {
+  @extend .mainline;
+  margin-left: 2px;
+}
+
+.leftline {
+  grid-row-start: 2;
+  grid-column: 1 / #{$grid-max-col};
+  border-bottom: 5px solid #000;
+  // margin-top: -0.2px;
+  height: 0px;
+  // width: calc(100% - 2px);
+  margin-left: 2px;
+}
+
+.rightline {
+  grid-row-start: 2;
+  grid-column: 2 / (#{$grid-max-col} + 1);
+  border-bottom: 5px solid #000;
+  // margin-top: -0.2px;
+  height: 0px;
+  width: 100%;
+}
+
+.state_i {
+  color: darkgray; /*sent ignore*/
+}
+.state_vu {
+  color: black; /*vice not existing*/
+}
+.state_v0 {
+  color: blue;
+}
+.state_v1 {
+  color: green;
+}
+.state_v2 {
+  color: red;
+}
+
+.ta-small.q-field--dense .q-field__control {
+  padding: 0 4px;
+}
+
+.ta-small.q-field--dense .q-field__control,
+.ta-small.q-field--dense .q-field__inner,
+.ta-small.q-field--dense
+  .q-field__control
+  .q-field__control-container
+  .q-field__native {
+  height: 25px;
+  min-height: 25px;
+}
+
+.ta-small.q-textarea.q-field--dense .q-field__native {
+  padding: 1px;
+  resize: none;
+}
+
+.layer-slider {
+  display: inline-flex;
+  margin-left: 15px;
+  margin-bottom: -12px;
+  height: 28px;
+  width: 100px;
+}
+
+.layer-slider .q-slider__thumb {
+  transform: scale(1.5);
+}
+.layer-slider .q-slider--active .q-slider__thumb {
+  transform: scale(2);
+}
+
+.layer-slider1 {
+  display: inline-flex;
+  height: 28px;
+}
+
+.layer-slider1 .q-slider__thumb {
+  transform: scale(1.5);
+}
+.layer-slider1 .q-slider--active .q-slider__thumb {
+  transform: scale(2);
+}
+
+// region Diagram
+.root-diagram,
+.root-diagram-open,
+.root-diagram-close {
+  border: 1px solid #bdbdbd;
+  padding: 5px;
+  // height: 100%;
+  display: inline-flex;
+  position: relative;
+  margin: 5px;
+  // display: inline-block;
+  // width: expression(document.body.clientWidth > 500? "500px": "auto");
+
+  // .vdr-container {
+  //   position: inherit !important;
+  //   box-sizing: inherit !important;
+  //   border: none !important;
+  // }
+}
+
+.root-diagram-open::after {
+  content: 'open_in_full';
+  font-family: Material Icons;
+  position: absolute;
+  right: 5px;
+  top: 3px;
+}
+
+.root-diagram-close::after {
+  content: 'close_fullscreen';
+  font-family: Material Icons;
+  position: absolute;
+  right: 5px;
+  top: 3px;
+}
+
+.root-diagram-open:hover::after,
+.root-diagram-close:hover::after {
+  cursor: pointer;
+}
+// endregion
+
+// region GridCompt
+.gridcompt {
+  background-color: white;
+  display: grid;
+  display: -ms-grid;
+  grid-auto-columns: max-content;
+  grid-auto-rows: max-content;
+  -ms-grid-columns: max-content;
+  -ms-grid-rows: max-content;
+  align-self: start;
+}
+
+.gc-error::after {
+  content: attr(data-err);
+  color: red;
+  position: absolute;
+  right: var(--errRight);
+  margin-top: -8px;
+}
+
+.g-drag {
+  width: 100%;
+  padding: 2px;
+  align-self: start;
+  justify-self: start;
+}
+
+.align-line,
+.align-line-check {
+  grid-area: 2 / 1 / 3 / 2;
+  border-bottom: 5px solid #000;
+}
+
+.align-line-check::before {
+  content: '●';
+  color: red;
+  font-size: 38px;
+  margin-left: -20px;
+  margin-top: -30px;
+  position: absolute;
+}
+
+.tip-content {
+  font-size: 16px;
+  margin: 0px -10px 20px 0px;
+  min-width: 64px;
+  text-align: center;
+}
+
+.gwhole-base {
+  grid-row: 1 / 4;
+  grid-column-start: 1;
+  grid-column-end: $grid-max-col;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 99;
+
+  ::after {
+    font-family: Material Icons;
+    position: absolute;
+    right: 5px;
+    top: 3px;
+    pointer-events: auto;
+  }
+
+  :hover::after {
+    cursor: pointer;
+  }
+}
+
+.expand-gwhole {
+  @extend .gwhole-base;
+  background-color: transparent;
+
+  // ::after {
+  //   content: "close_fullscreen";
+  // }
+}
+
+.gwhole {
+  @extend .gwhole-base;
+  // border: 1px solid black;
+  max-width: 900px;
+  // min-height: 50px;
+  pointer-events: auto;
+  background-color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.de-expand-gwhole {
+  @extend .gwhole-base;
+  background-color: transparent;
+}
+
+.de-gwhole {
+  @extend .gwhole-base;
+  max-width: 900px;
+  background-color: white;
+  font-size: 16px;
+}
+// endregion
+
+// region StackCompt
+.stack-grid {
+  background-color: white;
+  display: grid;
+  grid-auto-rows: max-content;
+  grid-auto-columns: max-content;
+}
+.stack-compt {
+  grid-row: 1;
+  grid-column: 3;
+  background-color: white;
+  display: grid;
+  grid-auto-rows: max-content;
+  grid-auto-columns: max-content;
+}
+
+.scdash {
+  height: calc(100% - 6px);
+  margin-bottom: 4px;
+  margin-left: 3px;
+}
+
+.s-drag {
+  width: 100%;
+  padding: 2px;
+  align-self: start;
+}
+// endregion
+
+// region TextCompt
+.textcompt {
+  padding: 16px 8px 6px 8px;
+  align-self: end;
+  background-color: white;
+}
+
+.t-drag {
+  width: auto;
+  padding: 2px;
+  align-self: end;
+}
+// endregion
+
+// region WordUnit
+.word-box.q-field--dense .q-field__control,
+.q-field--dense .q-field__marginal {
+  height: 36px;
+  padding: 0px 5px;
+}
+
+// .word-box.q-field--dense .q-field__control input {
+//   font-family: "微软雅黑";
+//   font-size: 21px;
+// }
+
+.word-unit {
+  display: grid;
+  max-width: 100%;
+  grid-template-rows: max-content max-content;
+  grid-template-columns: 6px max-content;
+}
+
+.word-box {
+  min-width: 50px;
+  height: 29px;
+  text-align: left;
+  line-height: 29px;
+  font-size: 21px;
+  font-family: 'Microsoft YaHei', '微软雅黑', monospace !important;
+  padding: 0px 5px;
+  grid-row: 1;
+  grid-column: 1 / 3;
+}
+
+.word-type {
+  font-size: 12px;
+  justify-self: end;
+  height: 17px;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif !important;
+  margin-left: -6px;
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.types-grid {
+  font-size: 12px;
+  grid-row: 2;
+  grid-column: 2;
+  display: flex;
+}
+
+[contenteditable] {
+  outline: 1px black groove;
+}
+[contenteditable]:focus,
+[contenteditable]:hover {
+  outline-width: 2px;
+  outline-color: lightskyblue;
+  outline-style: groove;
+}
+
+[contenteditable='false'],
+[contenteditable='false']:focus,
+[contenteditable='false']:hover {
+  outline: none;
+}
+// endreion WordUnit
+
+// region UIElement
+.fold-circle-base {
+  content: url('/assets/fold-circle.svg');
+  pointer-events: auto;
+  position: absolute;
+  top: -12px;
+  width: 0px;
+  height: 0px;
+  z-index: 1;
+}
+
+.unfold-circle-base {
+  content: url('/assets/unfold-circle.svg');
+  pointer-events: auto;
+  position: absolute;
+  top: -10px;
+  right: 5px;
+  width: 0px;
+  height: 0px;
+  z-index: 1;
+}
+
+.att-sep,
+.att-sep-unfold {
+  grid-row: 1;
+  grid-column: $grid-max-col - 1;
+  height: calc(100% - 17px);
+  margin-top: 17px;
+  border-right: 4px solid #000;
+  position: relative;
+  pointer-events: none;
+
+  &::before {
+    content: '';
+    width: 4px;
+    height: 32px;
+    position: absolute;
+    right: -15px;
+    top: -26px;
+    background: #000;
+    transform: rotate(45deg);
+    /* -ms-transform:rotate(45deg); */
+    /* -moz-transform:rotate(45deg);  */
+    /* -webkit-transform: rotate(45deg); Safari 和 Chrome */
+    /* -o-transform:rotate(45deg); Opera */
+  }
+}
+
+.att-sep-unfold::after {
+  @extend .unfold-circle-base;
+  top: -31px;
+  right: -16px;
+}
+
+.adv-sep,
+.adv-sep-unfold {
+  grid-row: 1;
+  grid-column: $grid-max-col - 1;
+  margin-top: -4px;
+  border-right: 4px solid #000;
+  position: relative;
+  // pointer-events: none;
+}
+
+.adv-sep-unfold::after {
+  @extend .unfold-circle-base;
+}
+
+.cmp-sep,
+.cmp-sep-unfold {
+  grid-row: 1;
+  grid-column: 2;
+  margin-top: -4px;
+  border-right: 4px solid #000;
+  position: relative;
+  pointer-events: none;
+}
+
+.cmp-sep-unfold::after {
+  @extend .unfold-circle-base;
+}
+
+.ind-sep,
+.ind-sep-unfold {
+  grid-row: 1;
+  grid-column: $grid-max-col - 1;
+  margin-top: -4px;
+  width: 5px;
+  background: linear-gradient(black, black 8px, transparent 8px, transparent);
+  background-size: 5px 10px;
+  // pointer-events: none;
+  /*8px black then 2px transparent -> repeat this!*/
+}
+
+.ind-sep-unfold::after {
+  @extend .unfold-circle-base;
+  top: -12px;
+  right: 24px;
+}
+
+.ind-right {
+  grid-row: 1;
+  grid-column: $grid-max-col;
+  width: 13px;
+}
+
+.att-sep-fold,
+.adv-sep-fold,
+.cmp-sep-fold,
+.ind-sep-fold {
+  width: 13px;
+  height: 0px;
+  pointer-events: none;
+
+  &::after {
+    @extend .fold-circle-base;
+  }
+}
+// endregion UIElement
+
+// region TypeBlock
+.type-block {
+  display: flex;
+  font-size: 12px;
+  width: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+
+  height: 17px;
+  min-width: 0px;
+  // max-width: 28px;
+  // transform: scale(0.7);
+  // font-weight: bold;
+  font-family: 'Times New Roman', Times, serif !important;
+  border-bottom: 2px solid transparent;
+}
+
+.type-block-hidden {
+  @extend .type-block;
+  opacity: 0;
+}
+
+.code-span {
+  // margin-left: -3px;
+  margin-top: 3px;
+  font-family: 'Times New Roman', Times, serif !important;
+  transform: scale(0.7);
+  // font-size: 12px;
+  min-width: 0px;
+  max-width: 13px;
+}
+
+.code-span-hidden {
+  @extend .code-span;
+  opacity: 0;
+}
+
+.mod-span {
+  // margin-left: -4px;
+  margin-bottom: -21px;
+  transform: scale(0.8);
+  font-family: 'Microsoft YaHei', '微软雅黑', monospace !important;
+  font-weight: bold;
+  // margin-left: -6px;
+  // font-size: 12px;
+  min-width: 0px;
+}
+
+.hid-text {
+  height: 0px;
+  overflow: hidden;
+  font-size: 21px;
+  font-family: 'Microsoft YaHei', '微软雅黑', monospace !important;
+}
+// endregion TypeBlock
+
+.drag-class {
+  background-color: white;
+  border: 1px solid white;
+}
+.drag-active-class {
+  background-color: yellow;
+  border: 1px solid red;
+}
+.drag-move-class {
+  background-color: orange;
+  border: 1px solid red;
+}
+.drag-merge-class {
+  background-color: #31ccec;
+  border: 1px solid cyan;
+}
+.drag-transfer-class {
+  background-color: #21ba45;
+  border: 1px solid green;
+}
+.drag-del-class {
+  background-color: red;
+  border: 1px solid red;
+}
