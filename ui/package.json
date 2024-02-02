@@ -1,7 +1,7 @@
 {
   "name": "quasar-ui-jbw-viewer",
   "version": "0.0.1",
-  "author": "zhaomin <zhaomin@han-sky.com>",
+  "author": "bnucip",
   "description": "jbw-viewer",
   "license": "MIT",
   "module": "dist/index.esm.js",
