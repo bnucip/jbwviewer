@@ -86,20 +86,21 @@ export default defineComponent({
     const type = shallowRef(GridCompt); //图形类型 GridCompt/StackCompt
     // 单击标注图形
     const gramClick = (e) => {
-      if (editor.value != null && editor.value.isPara) {
+      // console.log(e);
+      if (isPara.value) {
         let after = window.getComputedStyle(gramDiv.value, 'after');
         let top = parseInt(after.top.replace('px', ''));
         let right = parseInt(after.right.replace('px', ''));
         let width = parseInt(after.width.replace('px', ''));
         let height = parseInt(after.height.replace('px', ''));
-        let x2 = e.clientX - right + editor.value.diagramArea.scrollLeft;
+        let x2 = e.clientX - right + parentDiv.value.scrollLeft - parentDiv.value.offsetLeft + 2;
         let x1 = x2 - width;
         let y1 = top;
         let y2 = top + height;
-        // console.log("x:" + e.layerX + "\tx1:" + x1 + "\tx2:" + x2 + "\ty:" + e.layerY + "\ty1:" + y1 + "\ty2:" + y2);
+        // console.log('x:' + e.layerX + '\tx1:' + x1 + '\tx2:' + x2 + '\ty:' + e.layerY + '\ty1:' + y1 + '\ty2:' + y2);
 
         // 通过光标与伪元素距离layerY和样式类来判断是否点击在符号标记上
-        if (x1 < e.layerX && e.layerX < x2 && y1 < e.layerY && e.layerY < y2) {
+        if (x1 <= e.layerX && e.layerX <= x2 && y1 < e.layerY && e.layerY < y2) {
           isOpen.value = !isOpen.value;
           compt.value.expandAll(isOpen.value);
         }

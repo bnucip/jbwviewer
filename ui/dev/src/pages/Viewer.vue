@@ -12,7 +12,7 @@
         <div class="exp-info">
           <div>基础句式：　〖独〗﹙定﹚主║﹝状﹞谓﹤补﹥｜宾　并列⠤⠄　同位≔≕　介∧　⠉连⠁　△▽▷助◁▲▼　□方</div>
           <div>复杂句式：　联合⠒⠂　连动／　兼语⫽　合成∶　﹛主‖谓﹜</div>
-          <div>复句句群：　语义关联ᒪ　结构衔接⋮　句末插说⫰</div>
+          <div>复句句群：　⦉并列、⦉选择、⦉递进、ᔭ转折、ᒪ承接、⇅时间、⇅因果、⇅假设、⇅条件、⇅让步、＋承主、－续宾、±接句、⤷承导、⤹导语</div>
         </div>
         <div class="xml-area bg-white" ref="xmlArea" @input="xmlAreaInput" contenteditable="true">
         </div>
@@ -34,7 +34,7 @@
 <script setup>
 import { onMounted, ref, nextTick, computed, getCurrentInstance, watch } from 'vue';
 import { ExprConverter, XmlTags } from 'jbw-viewer';
-import { xmls } from 'src/model/test_data';
+import { examples } from 'src/model/test_data';
 import Expression from '../components/Expression.vue';
 import vkbeautify from 'vkbeautify';
 import { useQuasar, Loading, QSpinnerIos } from 'quasar';
@@ -43,7 +43,7 @@ const { proxy } = getCurrentInstance();
 const $q = useQuasar();
 
 const xml = ref();
-xml.value = xmls[1];
+xml.value = examples[0].xmlStr;
 const diagramDiv = ref();
 const viewer = ref();
 
@@ -162,6 +162,7 @@ const loadXml = (inXml) => {
 };
 
 const loadElectronXml = (xml, _sentIds) => {
+  window.scrollTo(0, 0); // 滚动条置于顶端，否则加载时线条位置会有问题
   if (xml) {
     // Loading.show({ spinner: QSpinnerIos, message: "加载中…" });
     // sentIds.value = _sentIds;

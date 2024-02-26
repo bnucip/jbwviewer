@@ -106,6 +106,7 @@ export default {
       { deep: true, flush: 'sync' }
     );
     //#region 调整线条相关
+    // 左边空白变化时，需要调整相关线条和标记的位置
     watch(marginLeft, (newVal) => {
       // console.log(newVal);
       gridCompts().forEach((o) => {
@@ -303,6 +304,7 @@ export default {
           re.wholeText = xml.textContent;
           re.items.length = 0;
           re.dependCompt = re;
+          re.alignCompt = null;
           re.updateParentItem('xml', xml);
         }
       }
@@ -522,9 +524,8 @@ export default {
           else this.editable = false;
         });
       } else {
-        // let indentMap = {};
         let arr = [];
-        // 根据依赖的句子放到indentMap排序，如果依赖的句子还有依赖，则递归查找
+        // 根据依赖的句子放到数组排序，如果依赖的句子还有依赖，则递归查找
         for (let i = 0; i < gcs.length; i++) {
           let item = gcs[i];
           if (item.xml.hasAttribute(XmlTags.A_Indent) && !arr.contains(item)) {

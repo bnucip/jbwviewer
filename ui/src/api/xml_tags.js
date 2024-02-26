@@ -36,6 +36,7 @@ const V_Coh_ONE = "⇣"; //单个成分或整体作另一句的主题
 const V_Coh_ONE_Up = "⇡";
 const A_Rel = "rel"; // 句间关系
 const A_Sub = "sub"; // 句间主从指向关系
+const A_Tpc = "tpc"; // 句间话题指向关系
 const A_Err = "err"; // 关系偏误  1-句间  2-句内  3-句间句内
 const A_Eoj = "eoj"; // 句内偏误
 const A_Eor = "eor"; // 句间偏误
@@ -287,6 +288,7 @@ export default {
   V_Coh_END_Up,
   A_Rel,
   A_Sub,
+  A_Tpc,
   A_Err,
   A_Eoj,
   A_Eor,

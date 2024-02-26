@@ -11,10 +11,6 @@
           <span class="q-ml-md">同位</span>
           <img class="q-ml-md" style="width:99px;" src="~assets/image/help/tw.png" />
         </div>
-        <!-- <div class="col row items-center q-mt-sm">
-          <span>助动</span>
-          <img class="q-ml-md" style="width:136px;" src="~assets/image/help/zd.png" />
-        </div> -->
         <div class="col row items-center q-mt-sm">
           <span>虚词位</span>
           <img class="q-ml-md" style="width:30px;" src="~assets/image/help/jie.png" />
@@ -60,16 +56,17 @@
     <div class="doc-card-title">复句句群</div>
     <div class="q-pt-sm col row">
       <div class="col column items-center">
-        <img style="width:165px;" src="~assets/image/help/fj.png" />
-        <span>语义关联</span>
+        <img style="width: 158px;" src="~assets/image/help/cfgx1.png" />
+        <span>结构续合</span>
       </div>
       <div class="col column items-center">
-        <img style="width:158px;" src="~assets/image/help/cfgx1.png" />
-        <span>结构衔接</span>
+        <img style="width: 165px;" src="~assets/image/help/fj.png" />
+        <span>结构分立</span>
       </div>
-      <div class="col column items-center">
-        <img style="width:242px;" src="~assets/image/help/cfgx3.png" />
-        <span>句末插说</span>
+      <div class="column q-py-md justify-between">
+        <span>逻辑语义：主从（⇅时间、⇅因果、⇅假设、⇅条件、⇅让步）</span>
+        <span>　　　　　等立（ᒪ承接、⦉并列、⦉选择、⦉递进、ᔭ转折）</span>
+        <span>话题导引：＋承主、－续宾、±接句、⤷承导、⤹导语</span>
       </div>
     </div>
   </div>

@@ -59,6 +59,9 @@ export default {
     const diagram = computed(() => {
       return proxy.ancestor('Diagram');
     });
+    const diagramEditable = computed(() => {
+      return editor.value && editor.value.diagramEditable;
+    });
 
     //#region  成分属性
     // 主句（最外层的小句或最外层复句中的小句）
@@ -229,8 +232,14 @@ export default {
     const subDiv = ref(); // 句间主从关系div
     const subRel = ref(''); // 句间主从关系
     const oriSubRel = ref(''); // 首次加载时的句间主从关系
+    const topDiv = ref(); // 句间话题关系div
+    const _topRel = ref(''); // 句间话题关系
+    const oriTpcRel = ref(''); // 首次加载时的句间话题关系
     const lineRelation = computed(() => {
       return _lineRel.value;
+    });
+    const topicRelation = computed(() => {
+      return _topRel.value;
     });
     const oriLineRelation = ref(''); // 首次加载时的句间关系
     // 初始oriLineRelation、oriSubRel优先级最高；
@@ -253,50 +262,48 @@ export default {
         if (type) {
           if (type.sub && type.sub != '') defSub = type.sub;
           rel = type.relation;
+          if (type.topic != '') {
+            _topRel.value = type.topic;
+          }
         } else if (oriLineRelation.value == '……') {
           oriLineRelation.value = '';
-          rel = '顺承';
+          rel = RelationType.Default;
         }
       } else {
-        let lrs = _lineRel.value.split('+');
-        if ((lrs[0] == '' || lrs.length == 1) && rel == '') return;
-        // console.log("lrs:", lrs);
-        // console.log("rel:", rel);
         tempRel = rel; // 存储手动选择的关系，用于判断sub
-        // C1: 整体替换 （Topic之间、顺承和Topic1之间、解说和Topic2之间
-        if (
-          rel == GlobalConst.ZhanWei ||
-          (lrs.length == 1 && !RelationType.Topic.contains(rel)) ||
-          (topicContainRel(rel) && topicContainRel(_lineRel.value))
-          // (["顺承", "解说"].contains(lrs[0]) && topicContainRel(rel)) ||
-          // (rel == "顺承" && RelationType.Topic1.contains("+" + lrs[1])) ||
-          // (rel == "解说" && (RelationType.Topic2.contains("+" + lrs[1]) || /续宾(\d+)$/.test(lrs[1])))
-        ) {
-          // console.log("1");
-        }
-        // C2：替换前面
-        else if (lrs.length == 2 && rel != '' && !topicContainRel(rel)) {
-          rel = rel + '+' + lrs[1];
-        }
-        // C3：替换后面
-        else if (topicContainRel(rel) || rel == '') {
-          // 点击相同后面选项，则按清空后面选项处理
-          if (lrs[1] && '+' + lrs[1] == rel) rel = '';
-          rel = (lrs[0] == GlobalConst.ZhanWei ? '' : lrs[0]) + rel;
-        }
       }
 
+      if (RelationType.TopicSym.includes(rel)) {
+        _topRel.value = rel;
+        // 承主、续宾不清空非“承接”关系，其他情况都清空
+        if (_lineRel.value != '' && (!RelationType.Topic1Sym.includes(rel) || _lineRel.value == RelationType.Default)) {
+          _lineRel.value = '';
+        }
+      } else {
+        _lineRel.value = rel;
+      }
+      if (rel == GlobalConst.ZhanWei) {
+        _topRel.value = '';
+        _lineRel.value = '';
+      }
+      rel = _lineRel.value != '' ? _lineRel.value : '';
+
+      if (oriTpcRel.value != '') {
+        _topRel.value = oriTpcRel.value;
+        oriTpcRel.value = '';
+      }
       // 所有箭头上指下 todo 需先处理历史数据
       if (dependArc.value != null) {
         dependArc.value.startPlug = PlugType.Behind;
         dependArc.value.endPlug = PlugType.Behind;
-        if (rel.includes('接句') && dependCompt.value) {
+        if (_topRel.value && _topRel.value == RelationType.ArrowSym && dependCompt.value) {
           if (dependCompt.value.row > props.row) dependArc.value.startPlug = PlugType.Arrow1;
           else dependArc.value.endPlug = PlugType.Arrow1;
         }
       }
 
       // console.log(rel);
+      // 通过空白占位符生成svg>text节点，方便相关div定位
       let color = 'red';
       let fontSize = 16;
       if (alignCompt.value != null) {
@@ -311,31 +318,58 @@ export default {
         }
         // console.log(ly);
         // 向下对齐时，文字显示在Grid左上位置
-        line.value.middleLabel = LeaderLine.captionLabel(rel, { color: color, fontSize: fontSize, lineOffset: ly });
+        line.value.middleLabel = LeaderLine.captionLabel(GlobalConst.ZhanWei, {
+          color: color,
+          fontSize: fontSize,
+          lineOffset: ly,
+        });
       } else {
-        dependArc.value.middleLabel = LeaderLine.captionLabel(rel, { color: color, fontSize: fontSize });
+        dependArc.value.middleLabel = LeaderLine.captionLabel(GlobalConst.ZhanWei, {
+          color: color,
+          fontSize: fontSize,
+        });
       }
-      _lineRel.value = rel;
+      // _lineRel.value = rel;
 
       // if (process.env.NODE_ENV == "development") {
       // console.log(rel);
+
+      if (topDiv.value == null) {
+        let div = document.createElement('div');
+        div.setAttribute('id', 'rel-div-top-' + proxy._.uid);
+        div.setAttribute('oncontextmenu', 'return false');
+        div.style.setProperty('z-index', lineZIndex.value + 101, 'important'); // 不能高于句间关系弹窗
+        div.style.setProperty('position', 'absolute'); // fixed absolute
+        div.style.setProperty('color', 'red'); // coral
+        div.style.setProperty('cursor', 'pointer');
+        div.style.setProperty('user-select', 'none');
+        div.style.setProperty('font-size', '25px');
+        div.style.setProperty('font-family', 'monospace');
+        div.style.setProperty('background-color', 'transparent');
+        document.body.append(div);
+        topDiv.value = div;
+      }
+
+      if (subDiv.value == null) {
+        let div = document.createElement('div');
+        div.setAttribute('id', 'rel-div-sub-' + proxy._.uid);
+        div.setAttribute('oncontextmenu', 'return false');
+        div.style.setProperty('z-index', lineZIndex.value + 101, 'important'); // 不能高于句间关系弹窗
+        div.style.setProperty('position', 'absolute'); // fixed absolute
+        div.style.setProperty('color', 'red'); // coral
+        div.style.setProperty('cursor', 'pointer');
+        div.style.setProperty('user-select', 'none');
+        div.style.setProperty('font-size', '25px');
+        // div.style.setProperty("font-family", "monospace");
+        div.style.setProperty('background-color', 'transparent');
+        div.addEventListener('mouseup', subDivMouseUp);
+        div.addEventListener('mouseenter', setRelTip);
+        div.addEventListener('mouseleave', setRelTip);
+        document.body.append(div);
+        subDiv.value = div;
+      }
       // 主从关系
       if (RelationType.MainSub.some((o) => rel.includes(o))) {
-        if (subDiv.value == null) {
-          let div = document.createElement('div');
-          div.setAttribute('id', 'rel-div-sub-' + proxy._.uid);
-          div.setAttribute('oncontextmenu', 'return false');
-          div.style.setProperty('z-index', lineZIndex.value + 101, 'important'); // 不能高于句间关系弹窗
-          div.style.setProperty('position', 'absolute'); // fixed absolute
-          div.style.setProperty('color', 'red'); // coral
-          div.style.setProperty('cursor', 'pointer');
-          div.style.setProperty('user-select', 'none');
-          div.style.setProperty('background-color', 'white');
-          div.addEventListener('mouseup', subDivMouseUp);
-          document.body.append(div);
-          subDiv.value = div;
-        }
-
         if (clickSet) {
           let type = matchComplexType(tempRel, true);
           if (type && type.sub && type.sub != '') defSub = type.sub;
@@ -349,10 +383,15 @@ export default {
         else subRel.value = defSub;
       }
       // 非主从
-      else if (subDiv.value != null) {
-        subDiv.value.remove();
-        subDiv.value = null;
-        subRel.value = '';
+      else {
+        let temp = RelationType.RelSymDict[_lineRel.value];
+        if (temp) {
+          subRel.value = temp;
+        } else {
+          subDiv.value.remove();
+          subDiv.value = null;
+          subRel.value = '';
+        }
       }
       // }
 
@@ -378,6 +417,8 @@ export default {
       relDiv.value = null;
       if (biasDiv.value) biasDiv.value.remove();
       biasDiv.value = null;
+      if (topDiv.value) topDiv.value.remove();
+      topDiv.value = null;
     };
 
     const biasDiv = ref(); // 关系偏误div
@@ -432,8 +473,6 @@ export default {
     const hidAlignCompt = ref(); // 隐含的 缩进对齐的基准成分（用于判断对齐句首的情况）
     watch(alignCompt, (nv, ov) => {
       if (nv != null) {
-        let diagramEditable = editor.value == null ? false : editor.value.diagramEditable;
-
         dependCompt.value = null;
         if (line.value != null) line.value.remove();
         let start = nv.isMainSent ? nv.hLine : nv.parentCompt.hLine;
@@ -442,7 +481,7 @@ export default {
         initialLineSandE();
         // line.middleLabel = LeaderLine.captionLabel("MIDDLE");
         // line.size = "50";
-        if (diagramEditable) lineVal.color = 'coral';
+        if (diagramEditable.value) lineVal.color = 'coral';
         else lineVal.color = 'black';
 
         lineVal.endPlug = PlugType.Behind; // endPlug.value可能不变，所以需初始化为Behind，
@@ -470,6 +509,7 @@ export default {
         line.value.remove();
         line.value = null;
         lineX.value = 0;
+        proxy.x = 0;
         lineSvg.value = null;
         lineSvgArea.value = null;
         endPlug.value = '';
@@ -522,7 +562,6 @@ export default {
     const dLineEndX = -7;
     watch(dependCompt, (nv, ov) => {
       // console.log(nv);
-      let diagramEditable = editor.value == null ? false : editor.value.diagramEditable;
 
       // 依存于其他句
       if (nv != null && nv != proxy) {
@@ -546,7 +585,7 @@ export default {
 
         adjustArcStart(lineVal, dependCompt.value);
 
-        if (diagramEditable) lineVal.color = 'coral';
+        if (diagramEditable.value) lineVal.color = 'coral';
         else lineVal.color = 'black';
 
         lineVal.dash = true;
@@ -585,7 +624,7 @@ export default {
         dependArc.value = line;
         initialArcStart();
 
-        if (diagramEditable) dependArc.value.color = 'coral';
+        if (diagramEditable.value) dependArc.value.color = 'coral';
         else dependArc.value.color = 'black';
 
         dependArc.value.dash = true;
@@ -720,7 +759,7 @@ export default {
 
         if (dependCompt.value != proxy && biasDiv.value == null) {
           let div = document.createElement('div');
-          div.setAttribute('id', 'rel-div-bias' + proxy._.uid);
+          div.setAttribute('id', 'rel-div-bias-' + proxy._.uid);
           div.setAttribute('oncontextmenu', 'return false');
           div.style.setProperty('z-index', lineZIndex.value + 100, 'important'); // 不能高于句间关系弹窗
           div.style.setProperty('position', 'absolute'); // fixed absolute
@@ -735,14 +774,22 @@ export default {
           div.setAttribute('oncontextmenu', 'return false');
           div.style.setProperty('z-index', lineZIndex.value + 100, 'important'); // 不能高于句间关系弹窗
           div.style.setProperty('position', 'absolute'); // fixed absolute
-          div.style.setProperty('width', '25px');
-          div.style.setProperty('height', '15px');
-          div.style.setProperty('background-color', 'transparent'); // lightgrey transparent
-          div.style.setProperty('opacity', '0.5');
+          div.style.setProperty('width', '18px');
+          div.style.setProperty('height', '28px');
+
+          if (diagramEditable.value) {
+            div.style.setProperty('color', 'red');
+            div.style.setProperty('background-color', 'rgb(211 211 211 / 50%)');
+          } else {
+            div.style.setProperty('color', 'transparent');
+            div.style.setProperty('background-color', 'transparent');
+          }
+          // div.style.setProperty("opacity", "0.5");
           div.style.setProperty('cursor', 'pointer');
+          div.style.setProperty('writing-mode', 'vertical-rl');
           div.addEventListener('mouseup', relDivMouseUp);
-          div.addEventListener('mouseenter', setRelTip);
-          div.addEventListener('mouseleave', setRelTip);
+          // div.addEventListener("mouseenter", setRelTip);
+          // div.addEventListener("mouseleave", setRelTip);
           relDivPosition();
           document.body.append(div);
           relDiv.value = div;
@@ -800,12 +847,12 @@ export default {
       let bottomGrid = relGrid.row > props.row ? relGrid : proxy;
 
       let sbj = topGrid.childrenItems.firstOrDefault((o) => o.belongIniType(XmlTags.C_Zhu));
-      // 针对弧线，如果前一句是独词句，且没有标注关系时，则自动标注为“解说”。
+      // 针对弧线，如果前一句是独词句，且没有标注关系时
       // todo 独词词性为体词
       if (!rel && sbj && sbj.isOnlySbj && !topText.endsWith('”') && dependCompt.value) {
         let bottomSbj = bottomGrid.childrenItems.firstOrDefault((o) => o.belongIniType(XmlTags.C_Zhu));
         // 前后都为独词，则为并列
-        let rel = bottomSbj && bottomSbj.isOnlySbj ? '并列' : '解说';
+        let rel = bottomSbj && bottomSbj.isOnlySbj ? '并列' : '';
         t = { relation: rel };
       } else if (topText != '') {
         let ctypes = SessionStorage.getItem(S_Key.Com_Type);
@@ -909,10 +956,10 @@ export default {
           }
 
           // 限制：不能对齐到其他句
-          if (!t && !bottomGrid.alignCompt && (!topGrid.alignCompt || topGrid.alignCompt.mainSentCompt != bottomGrid)) {
-            let sbj2 = bottomGrid.childrenItems.find((o) => o.belongIniType(XmlTags.C_Zhu));
-            if (sbj2 && sbj2.text == '这') t = { relation: '+接句', example: '…，这…' };
-          }
+          // if (!t && !bottomGrid.alignCompt && (!topGrid.alignCompt || topGrid.alignCompt.mainSentCompt != bottomGrid)) {
+          //   let sbj2 = bottomGrid.childrenItems.find(o => o.belongIniType(XmlTags.C_Zhu));
+          //   if (sbj2 && sbj2.text == "这") t = { relation: "+接句", example: "…，这…" };
+          // }
         }
       }
 
@@ -1061,14 +1108,14 @@ export default {
         if (align2Top.value) {
           if (ac.isSentLastCompt()) {
             endPlug.value = PlugType.Disc;
-            setLineRelation('解说');
+            setLineRelation(GlobalConst.ZhanWei);
           } else if (ac.isMainSent) {
             while (ac.isMainSent) {
               ac = ac.alignCompt;
             }
             if (ac.isSentLastCompt()) {
               endPlug.value = PlugType.Disc;
-              setLineRelation('解说');
+              setLineRelation(GlobalConst.ZhanWei);
             }
           }
         }
@@ -1204,11 +1251,20 @@ export default {
       if (!proxy.editable) return;
 
       if (subDiv.value == null) return;
-      subRel.value = subRel.value == RelSubType.ToTop ? RelSubType.ToBottom : RelSubType.ToTop;
+
+      if (subRel.value == RelSubType.ToTop || subRel.value == RelSubType.ToBottom) {
+        subRel.value = subRel.value == RelSubType.ToTop ? RelSubType.ToBottom : RelSubType.ToTop;
+      }
     };
     watch(subRel, (nv) => {
       // console.log(nv);
       if (subDiv.value != null) subDiv.value.textContent = nv;
+    });
+    watch(_topRel, (nv) => {
+      // console.log(nv);
+      if (topDiv.value != null) {
+        topDiv.value.textContent = nv != RelationType.ArrowSym ? nv : '';
+      }
     });
 
     // 随着line位置变化调整句间关系焦点div的位置
@@ -1226,16 +1282,23 @@ export default {
 
               // 空白占位的情况
               if (tw == 0) {
-                tx -= 13;
-                tw = 30;
+                // tx -= 13;
+                tw = 31;
               }
 
-              relDiv.value.style.setProperty('left', tx + 'px');
-              relDiv.value.style.setProperty('top', ty - 10 + 'px');
-              relDiv.value.style.setProperty('width', tw + 'px');
+              let sleft = tx + tw - 25;
+              let tLeft = tx - 27;
+              relDiv.value.style.setProperty('left', tx + 20 + 'px');
+              relDiv.value.style.setProperty('top', ty - 15 + 'px');
+              // relDiv.value.style.setProperty("width", tw + "px");
+              relDiv.value.textContent = _lineRel.value;
               if (subDiv.value != null) {
-                subDiv.value.style.setProperty('left', tx - 10 + 'px');
-                subDiv.value.style.setProperty('top', ty - 15 + 'px');
+                subDiv.value.style.setProperty('left', sleft + 'px');
+                subDiv.value.style.setProperty('top', ty - 20 + 'px');
+              }
+              if (topDiv.value != null) {
+                topDiv.value.style.setProperty('left', tLeft + 'px');
+                topDiv.value.style.setProperty('top', ty - 20 + 'px');
               }
               if (biasDiv.value != null) {
                 biasDiv.value.style.setProperty('left', tx + tw + 3 + 'px');
@@ -1254,6 +1317,15 @@ export default {
           const o = array[i];
           o.style.setProperty('user-select', 'none');
         }
+      }
+    };
+    const setRelDivVisible = (visible = false) => {
+      if (visible && relDiv.value) {
+        relDiv.value.style.setProperty('color', 'red');
+        relDiv.value.style.setProperty('background-color', 'rgb(211 211 211 / 50%)');
+      } else if (relDiv.value) {
+        relDiv.value.style.setProperty('color', 'transparent');
+        relDiv.value.style.setProperty('background-color', 'transparent');
       }
     };
     //#endregion
@@ -1992,6 +2064,7 @@ export default {
       oriLineRelation,
       oriRelBias,
       oriSubRel,
+      oriTpcRel,
       relationTip,
       relationTipTarget,
       relationTipContent,
@@ -2001,6 +2074,7 @@ export default {
       showRelationTip,
       subDiv,
       subRel,
+      topicRelation,
       x,
       y,
       z,
@@ -2045,6 +2119,7 @@ export default {
       setDependArcInfo,
       setLineRelation,
       setRelationBias,
+      setRelDivVisible,
     };
   },
 };

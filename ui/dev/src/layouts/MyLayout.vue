@@ -7,12 +7,12 @@
         <q-toolbar-title>
           jbw-viewer v{{ version }}
         </q-toolbar-title>
-        <q-btn round flat class="q-ml-sm" icon="help" @click="showHelp = true" />
+        <q-btn round flat class="q-ml-sm" icon="wallpaper" @click="showHelp = true" />
         <template v-if="$isElectron">
           <q-btn flat dense class="bg-light-blue-4 q-ml-sm" icon="upload_file" @click="openFile" />
         </template>
         <q-btn flat dense class="bg-light-blue-4 q-ml-sm" label="XML" @click="openXMLDialog" />
-
+        <q-btn round flat class="q-ml-sm" title="关于" icon="help" @click="showAbout = true" />
         <!-- <div>Quasar v{{ $q.version }}</div> -->
       </q-toolbar>
     </q-header>
@@ -32,6 +32,19 @@
     <q-dialog v-model="showHelp">
       <help-figure class="q-py-lg q-pr-lg q-pl-xl bg-white" style="width:1000px;max-width:80vw;" />
     </q-dialog>
+    <q-dialog v-model="showAbout">
+      <q-card style="width: 400px">
+        <q-card-section class="row items-center q-pb-none">
+          <div class="text-h6">关于</div>
+          <q-space />
+          <q-btn icon="close" flat round dense v-close-popup />
+        </q-card-section>
+        <q-card-section>
+          <p>Email: <a href="mailto:pengweiming@bnu.edu.cn">pengweiming@bnu.edu.cn</a></p>
+          <a href="http://www.jubenwei.com" target="_blank">http://www.jubenwei.com</a>
+        </q-card-section>
+      </q-card>
+    </q-dialog>
   </q-layout>
 </template>
 
@@ -46,6 +59,7 @@ const rView = ref();
 const $q = useQuasar();
 const sentInfo = ref();
 const showHelp = ref(false);
+const showAbout = ref(false);
 
 // vue 3.3
 defineOptions({

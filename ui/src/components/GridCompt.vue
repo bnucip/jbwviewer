@@ -36,6 +36,7 @@ import PlugType from '../enum/plug_type';
 import SubSep from '../enum/sub_sep';
 import UniPos from '../enum/uni_pos';
 import GlobalConst from '../enum/global_variable';
+import RelSubType from '../enum/relation_sub_type';
 import GridUtil from '../api/grid_util';
 import Common from '../api/common';
 
@@ -529,7 +530,12 @@ export default {
       if (indent) elem.setAttribute(XmlTags.A_Indent, indent);
       if (proxy.lineRelation && proxy.lineRelation != '' && proxy.lineRelation != GlobalConst.ZhanWei)
         elem.setAttribute(XmlTags.A_Rel, proxy.lineRelation);
-      if (proxy.subRel && proxy.subRel != '') elem.setAttribute(XmlTags.A_Sub, proxy.subRel);
+      if (proxy.subRel && (proxy.subRel == RelSubType.ToTop || proxy.subRel == RelSubType.ToBottom)) {
+        elem.setAttribute(XmlTags.A_Sub, proxy.subRel);
+      }
+      if (proxy.topicRelation && proxy.topicRelation != '') {
+        elem.setAttribute(XmlTags.A_Tpc, proxy.topicRelation);
+      }
       let aErr = 0;
       if (proxy.relBias && proxy.relBias != '') {
         if (proxy.relBias == '*') aErr += 1;
@@ -771,6 +777,11 @@ export default {
           else if (xml.hasAttribute(XmlTags.A_Indent)) proxy.oriLineRelation = GlobalConst.ZhanWei;
 
           if (xml.hasAttribute(XmlTags.A_Sub)) proxy.oriSubRel = xml.getAttribute(XmlTags.A_Sub);
+
+          if (xml.hasAttribute(XmlTags.A_Tpc)) {
+            proxy.oriTpcRel = xml.getAttribute(XmlTags.A_Tpc);
+          }
+
           if (xml.hasAttribute(XmlTags.A_Err)) {
             let attErr = xml.getAttribute(XmlTags.A_Err);
             let iAttErr = parseInt(attErr);
@@ -1036,6 +1047,7 @@ export default {
     };
 
     const setLineColor = (color = 'black', textColor = 'black') => {
+      // console.log('setLineColor');
       if (proxy.line) {
         // this.line.startPlugColor = "#a6f41d";
         proxy.line.color = color;
@@ -1048,9 +1060,11 @@ export default {
         // console.log(color);
         // 锁定时，隐藏关系焦点
         if (color == 'black') {
-          proxy.relDiv.style.backgroundColor = 'transparent';
+          proxy.setRelDivVisible(false);
+          proxy.relDivPosition();
         } else {
-          proxy.relDiv.style.backgroundColor = 'lightgrey';
+          proxy.setRelDivVisible(true);
+          proxy.relDivPosition();
         }
       }
 

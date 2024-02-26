@@ -35,3 +35,8 @@ npm run build:electron
 # 数据说明
 
 Electron 模式下可加载本地 XML 标注数据。示例数据目录：ui\dev\examples
+
+# 关于
+
+Email: pengweiming@bnu.edu.cn
+http://www.jubenwei.com
