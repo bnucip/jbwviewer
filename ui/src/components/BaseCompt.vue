@@ -481,8 +481,7 @@ export default {
         initialLineSandE();
         // line.middleLabel = LeaderLine.captionLabel("MIDDLE");
         // line.size = "50";
-        if (diagramEditable.value) lineVal.color = 'coral';
-        else lineVal.color = 'black';
+        lineVal.color = 'black';
 
         lineVal.endPlug = PlugType.Behind; // endPlug.value可能不变，所以需初始化为Behind，
         if (iniEndPlug.value != null && iniEndPlug.value != '') {
@@ -585,8 +584,7 @@ export default {
 
         adjustArcStart(lineVal, dependCompt.value);
 
-        if (diagramEditable.value) lineVal.color = 'coral';
-        else lineVal.color = 'black';
+        lineVal.color = 'black';
 
         lineVal.dash = true;
         lineVal.gradient = true;
@@ -624,8 +622,7 @@ export default {
         dependArc.value = line;
         initialArcStart();
 
-        if (diagramEditable.value) dependArc.value.color = 'coral';
-        else dependArc.value.color = 'black';
+        dependArc.value.color = 'black';
 
         dependArc.value.dash = true;
         dependArc.value.gradient = true;
@@ -785,6 +782,7 @@ export default {
             div.style.setProperty('background-color', 'transparent');
           }
           // div.style.setProperty("opacity", "0.5");
+          div.style.setProperty('font-size', '12px');
           div.style.setProperty('cursor', 'pointer');
           div.style.setProperty('writing-mode', 'vertical-rl');
           div.addEventListener('mouseup', relDivMouseUp);
@@ -1288,8 +1286,8 @@ export default {
 
               let sleft = tx + tw - 25;
               let tLeft = tx - 27;
-              relDiv.value.style.setProperty('left', tx + 20 + 'px');
-              relDiv.value.style.setProperty('top', ty - 15 + 'px');
+              relDiv.value.style.setProperty('left', tx - 9 + 'px');
+              relDiv.value.style.setProperty('top', ty - 12 + 'px');
               // relDiv.value.style.setProperty("width", tw + "px");
               relDiv.value.textContent = _lineRel.value;
               if (subDiv.value != null) {
@@ -1319,13 +1317,18 @@ export default {
         }
       }
     };
-    const setRelDivVisible = (visible = false) => {
+    const setRelDivVisible = (visible = false, altKey = false) => {
       if (visible && relDiv.value) {
         relDiv.value.style.setProperty('color', 'red');
         relDiv.value.style.setProperty('background-color', 'rgb(211 211 211 / 50%)');
       } else if (relDiv.value) {
-        relDiv.value.style.setProperty('color', 'transparent');
-        relDiv.value.style.setProperty('background-color', 'transparent');
+        if (altKey) {
+          relDiv.value.style.setProperty('color', 'transparent');
+          relDiv.value.style.setProperty('background-color', 'transparent');
+        } else {
+          relDiv.value.style.setProperty('color', 'red');
+          relDiv.value.style.setProperty('background-color', _lineRel.value == '' ? 'transparent' : 'white');
+        }
       }
     };
     //#endregion

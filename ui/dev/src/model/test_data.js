@@ -21,6 +21,11 @@ const examples = [
     xmlStr:
       '<ju dct="0"><xj id="1"><sbj><r sen="001">您</r></sbj><adv><pp><p sen="015">对</p></pp><att><sbj><n sen="001">国家</n></sbj><adv><d sen="001">不</d></adv><prd scp="VO"><v sen="001">允许</v></prd><obj><n sen="001">名人</n></obj><cc fun="PVT"/><adv><pp><p sen="002">以</p></pp><att><n sen="001">患者</n><uu><u sen="001">的</u></uu></att><n sen="001">身份</n></adv><prd scp="VC"><v sen="002">出现</v></prd><cmp><pp><p sen="007">在</p></pp><n sen="001">广告</n><ff><f sen="003">中</f></ff></cmp><uu><u sen="001">的</u></uu></att><n sen="002">规定</n></adv><adv><r sen="001">怎么</r></adv><prd scp="V"><v sen="101">看</v><w>？</w></prd></xj></ju>',
   },
+  {
+    content: "孔乙己是这样的使人快活，可是没有他，别人也便这么过。",
+    xmlStr:
+      '<ju dct="0"><xj id="1"><sbj><n>孔乙己</n></sbj><prd scp="V"><v sen="203">是</v></prd><cc fun="SYN"/><adv><r sen="001">这样</r><uu><u sen="001">的</u></uu></adv><prd scp="VO"><v sen="003">使</v></prd><obj><n sen="005">人</n></obj><cc fun="PVT"/><prd scp="V"><a sen="001">快活</a><w>，</w></prd></xj><xj upt="1:s" rel="转折" id="2"><cc><c sen="001">可是</c></cc><sbj><x/></sbj><prd scp="VO"><v sen="002">没有</v></prd><obj><r sen="001">他</r><w>，</w></obj></xj><xj upt="2:1" rel="让步" sub="↑" id="3"><sbj><r sen="101">别人</r></sbj><adv><d sen="101">也</d></adv><adv><d sen="006">便</d></adv><adv><r sen="001">这么</r></adv><prd scp="V"><v sen="101">过</v><w>。</w></prd></xj></ju>',
+  },
 ];
 
 export { xmls, examples };

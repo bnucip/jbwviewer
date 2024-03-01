@@ -567,12 +567,12 @@ export default {
       }
     },
 
-    deActive(hideCode, hideTb) {
+    deActive(hideCode, hideTb, altKey) {
       this.editable = false;
       let gcs = this.gridCompts();
       for (let i = 0; i < gcs.length; i++) {
         let item = gcs[i];
-        item.deActive(hideCode, hideTb);
+        item.deActive(hideCode, hideTb, altKey);
       }
       if (this.cornerCompt != null) this.cornerCompt.deActive(hideCode, hideTb);
     },

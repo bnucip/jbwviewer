@@ -2,7 +2,9 @@
   <div>
     <div class="doc-card-title">基础句式</div>
     <div class="q-py-sm row justify-between items-center">
-      <div class="col-auto"> <img style="width:505px;" src="~assets/image/help/jcjs.png" /></div>
+      <div class="col-auto">
+        <img style="width:40vw;max-width:505px;" src="~assets/image/help/jcjs.png" />
+      </div>
       <q-separator vertical />
       <div class="col-auto column items-start">
         <div class="col row items-center">
@@ -56,11 +58,11 @@
     <div class="doc-card-title">复句句群</div>
     <div class="q-pt-sm col row">
       <div class="col column items-center">
-        <img style="width: 158px;" src="~assets/image/help/cfgx1.png" />
+        <img style="width:158px;" src="~assets/image/help/cfgx1.png" />
         <span>结构续合</span>
       </div>
       <div class="col column items-center">
-        <img style="width: 165px;" src="~assets/image/help/fj.png" />
+        <img style="width:165px;" src="~assets/image/help/fj.png" />
         <span>结构分立</span>
       </div>
       <div class="column q-py-md justify-between">

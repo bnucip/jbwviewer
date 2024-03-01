@@ -392,7 +392,6 @@ export default {
 
       // 记录复句偏移信息    注：如果跨过非句对齐，则编码会有问题
       let indent;
-      let coh;
       if (proxy.alignCompt != null && proxy.line != null) {
         let idx = 0;
         let ac = proxy.alignCompt;
@@ -456,30 +455,6 @@ export default {
 
         // console.log(tcs);
         try {
-          switch (proxy.line.endPlug) {
-            case PlugType.Behind:
-              coh = XmlTags.V_Coh_PRE;
-              break;
-            case PlugType.Disc:
-              coh = acParent.row > props.row ? XmlTags.V_Coh_END_Up : XmlTags.V_Coh_END;
-              // idx = -1;
-              idx = XmlTags.V_Indent_E;
-              break;
-            case PlugType.Arrow1:
-              coh = acParent.row > props.row ? XmlTags.V_Coh_ONE_Up : XmlTags.V_Coh_ONE;
-              // 末尾向下箭头，无主语时算词位置，有主语时coh=-1 20220304
-              // 20220317 取消-1，按句首依存标注
-              // if (
-              //   isLast &&
-              //   proxy.childrenItems
-              //     .firstOrDefault(p => p.belongIniType(XmlTags.C_Zhu, XmlTags.C_Wei))
-              //     .belongIniType(XmlTags.C_Zhu)
-              // ) {
-              //   idx = -1;
-              // }
-              break;
-          }
-
           // todo 待优化，和前面判断idx逻辑合并  包含兼容历史数据的处理（对齐到同一成分改为对齐句首）
           // 基于不能跨句对齐    图形上多句对齐同一成分时，后一句指向前一句句首
           if (idx != 0 && idx != XmlTags.V_Indent_E) {
@@ -526,7 +501,6 @@ export default {
       //   elem.setAttribute(XmlTags.A_Id, xjId == null ? 1 : xjId);
       // }
 
-      if (coh) elem.setAttribute(XmlTags.A_Coh, coh);
       if (indent) elem.setAttribute(XmlTags.A_Indent, indent);
       if (proxy.lineRelation && proxy.lineRelation != '' && proxy.lineRelation != GlobalConst.ZhanWei)
         elem.setAttribute(XmlTags.A_Rel, proxy.lineRelation);
@@ -736,22 +710,9 @@ export default {
               lineLoaded.value = true;
               let topGrid = alignCompt == null ? null : alignCompt.getTopComptByType('GridCompt');
               if (topGrid != null && topGrid.row > props.row) proxy.align2Top = false;
-              let coh = xml.getAttribute(XmlTags.A_Coh);
-              switch (coh) {
-                case XmlTags.V_Coh_ONE:
-                case XmlTags.V_Coh_ONE_Up:
-                  proxy.iniEndPlug = PlugType.Arrow1;
-                  break;
-                case XmlTags.V_Coh_ALL:
-                  proxy.iniEndPlug = PlugType.ArrowD;
-                  break;
-                case XmlTags.V_Coh_PRE:
-                  proxy.iniEndPlug = PlugType.Behind;
-                  break;
-                case XmlTags.V_Coh_END:
-                case XmlTags.V_Coh_END_Up:
-                  proxy.iniEndPlug = PlugType.Disc;
-                  break;
+              // 末尾
+              if (info.tIdx == XmlTags.V_Indent_E) {
+                proxy.iniEndPlug = PlugType.Disc;
               }
             }
 
@@ -1046,8 +1007,7 @@ export default {
       if (e.stopPropagation) e.stopPropagation();
     };
 
-    const setLineColor = (color = 'black', textColor = 'black') => {
-      // console.log('setLineColor');
+    const setLineColor = (color = 'black', textColor = 'black', active = false, altKey = false) => {
       if (proxy.line) {
         // this.line.startPlugColor = "#a6f41d";
         proxy.line.color = color;
@@ -1057,10 +1017,9 @@ export default {
       }
 
       if (proxy.relDiv) {
-        // console.log(color);
         // 锁定时，隐藏关系焦点
-        if (color == 'black') {
-          proxy.setRelDivVisible(false);
+        if (!active) {
+          proxy.setRelDivVisible(false, altKey);
           proxy.relDivPosition();
         } else {
           proxy.setRelDivVisible(true);
@@ -1515,18 +1474,18 @@ export default {
           }
         });
       }
-      this.setLineColor(this.ignore ? 'transparent' : 'coral', 'red');
+      this.setLineColor(this.ignore ? 'transparent' : 'black', 'red', true);
     },
 
-    deActive(hideCode, hideTb) {
+    deActive(hideCode, hideTb, altKey) {
       this.$nextTick(() => {
         this.editable = false;
         for (let i = 0; i < this.childrenItems.length; i++) {
           let item = this.childrenItems[i];
-          item.deActive(hideCode, hideTb);
+          item.deActive(hideCode, hideTb, altKey);
         }
       });
-      this.setLineColor(this.ignore ? 'transparent' : 'black', 'black');
+      this.setLineColor(this.ignore ? 'transparent' : 'black', 'black', false, altKey);
     },
   },
 

@@ -546,8 +546,8 @@ export default defineComponent({
         rootClass.value = isOpen.value ? 'root-diagram-close' : 'root-diagram-open';
       }
     };
-    const deActive = (hideCode, hideTb) => {
-      compt.value.deActive(hideCode, hideTb);
+    const deActive = (hideCode, hideTb, altKey) => {
+      compt.value.deActive(hideCode, hideTb, altKey);
       if (isPara.value) {
         rootClass.value = 'root-diagram';
       }

@@ -30,7 +30,7 @@
     </q-page-container>
 
     <q-dialog v-model="showHelp">
-      <help-figure class="q-py-lg q-pr-lg q-pl-xl bg-white" style="width:1000px;max-width:80vw;" />
+      <help-figure class="q-py-md q-pr-lg q-pl-xl bg-white" style="width:1000px;max-width:80vw;" />
     </q-dialog>
     <q-dialog v-model="showAbout">
       <q-card style="width: 400px">

@@ -7,9 +7,13 @@ const Default = "承接";
 const ArrowType = "导语";
 const ArrowSym = "⤹";
 // 顺承话题
-const Topic1 = ["承主", "续宾"];
+const TopicSbj = "承主";
+const TopicObj = "续宾";
+const Topic1 = [TopicSbj, TopicObj];
 // 顺承话题符号
 const Topic1Sym = ["＋", "－"];
+//
+const TopicSent = "接句";
 // 解说话题
 const Topic2 = [ArrowType];
 // 话题
@@ -33,6 +37,9 @@ const RelSymDict = {
 export default {
   Coordinate,
   MainSub,
+  TopicSbj,
+  TopicObj,
+  TopicSent,
   Topic1,
   Topic1Sym,
   Topic2,

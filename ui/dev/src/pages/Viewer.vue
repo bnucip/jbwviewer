@@ -12,7 +12,7 @@
         <div class="exp-info">
           <div>基础句式：　〖独〗﹙定﹚主║﹝状﹞谓﹤补﹥｜宾　并列⠤⠄　同位≔≕　介∧　⠉连⠁　△▽▷助◁▲▼　□方</div>
           <div>复杂句式：　联合⠒⠂　连动／　兼语⫽　合成∶　﹛主‖谓﹜</div>
-          <div>复句句群：　⦉并列、⦉选择、⦉递进、ᔭ转折、ᒪ承接、⇅时间、⇅因果、⇅假设、⇅条件、⇅让步、＋承主、－续宾、±接句、⤷承导、⤹导语</div>
+          <div>复句句群：　⇅时间、⇅因果、⇅假设、⇅条件、⇅让步、ᒪ承接、⦉并列、⦉选择、⦉递进、ᔭ转折、＋承主、－续宾、±接句、⤷承导、⤹导语</div>
         </div>
         <div class="xml-area bg-white" ref="xmlArea" @input="xmlAreaInput" contenteditable="true">
         </div>
