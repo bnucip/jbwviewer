@@ -78,7 +78,7 @@ export default defineComponent({
     const rootClass = ref('root-diagram');
     const isOpen = ref(null); // 当前是否展开
     watch(isOpen, (nv) => {
-      if (editor.value) rootClass.value = nv ? 'root-diagram-close' : 'root-diagram-open';
+      rootClass.value = nv ? 'root-diagram-close' : 'root-diagram-open';
     });
 
     const gramDiv = ref({});

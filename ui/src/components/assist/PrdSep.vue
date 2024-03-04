@@ -92,3 +92,119 @@ export default {
   components: {},
 };
 </script>
+
+<style lang="scss" scoped>
+// region PrdSep
+.syn,
+.SYN,
+.syn-l,
+.SYN-l {
+  height: 60px;
+  width: 8px;
+  position: relative;
+  align-self: end;
+  margin: 0px 8px 0px 2px;
+}
+
+.syn::after,
+.SYN::after,
+.syn-l::after,
+.SYN-l::after {
+  content: ':';
+  font-size: 40px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  position: absolute;
+  bottom: 8px;
+}
+
+.ser,
+.SER,
+.ser-l,
+.SER-l,
+.pvt,
+.PVT,
+.pvt-l,
+.PVT-l {
+  height: 60px;
+  width: 20px;
+  position: relative;
+  align-self: end;
+  margin: 0px 5px 0px 2px;
+}
+
+.ser::after,
+.SER::after,
+.ser-l::after,
+.SER-l::after {
+  content: '';
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  left: 10px;
+  transform: skewX(-13deg);
+  background: #000;
+}
+
+.pvt::before,
+.PVT::before,
+.pvt-l::before,
+.PVT-l::before {
+  content: '';
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  left: 8px;
+  transform: skewX(-13deg);
+  background: #000;
+}
+
+.pvt::after,
+.PVT::after,
+.pvt-l::after,
+.PVT-l::after {
+  content: '';
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  left: 14px;
+  transform: skewX(-13deg);
+  background: #000;
+}
+
+.uni,
+.UNI,
+.uni-l,
+.UNI-l {
+  height: 30px;
+  width: 20px;
+  position: relative;
+  align-self: end;
+  justify-self: center;
+}
+
+.uni::after,
+.UNI::after {
+  content: '';
+  height: 4px;
+  width: 20px;
+  position: absolute;
+  top: 13px;
+  left: 1px;
+  background: linear-gradient(to right, black 0, black 5.1px, transparent 5.1px, transparent 6.8px);
+  background-size: 7px 4px;
+}
+
+.uni-l::after,
+.UNI-l::after {
+  content: '';
+  height: 4px;
+  width: 40px;
+  position: absolute;
+  top: 13px;
+  margin-left: -10px;
+  background: linear-gradient(to right, black 0, black 5.1px, transparent 5.1px, transparent 6.8px);
+  background-size: 7px 4px;
+}
+// endregion
+</style>

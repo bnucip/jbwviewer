@@ -228,6 +228,12 @@ export default {
     const lineSvg = ref(); // line对应的svg元素
     const lineSvgArea = ref(); // line对应的svg area元素
     const _lineRel = ref(''); // "——" ……
+    watch(_lineRel, (nv) => {
+      if (relDiv.value) {
+        relDiv.value.textContent = nv;
+        relDiv.value.style.setProperty('background-color', nv == '' ? 'transparent' : 'white');
+      }
+    });
     const relDiv = ref(); // 关系文字div，防止线条覆盖，置于最上层方便鼠标点击事件
     const subDiv = ref(); // 句间主从关系div
     const subRel = ref(''); // 句间主从关系
@@ -778,7 +784,7 @@ export default {
             div.style.setProperty('color', 'red');
             div.style.setProperty('background-color', 'rgb(211 211 211 / 50%)');
           } else {
-            div.style.setProperty('color', 'transparent');
+            div.style.setProperty('color', 'red');
             div.style.setProperty('background-color', 'transparent');
           }
           // div.style.setProperty("opacity", "0.5");
@@ -1289,7 +1295,6 @@ export default {
               relDiv.value.style.setProperty('left', tx - 9 + 'px');
               relDiv.value.style.setProperty('top', ty - 12 + 'px');
               // relDiv.value.style.setProperty("width", tw + "px");
-              relDiv.value.textContent = _lineRel.value;
               if (subDiv.value != null) {
                 subDiv.value.style.setProperty('left', sleft + 'px');
                 subDiv.value.style.setProperty('top', ty - 20 + 'px');

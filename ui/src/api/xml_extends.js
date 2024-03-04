@@ -14,18 +14,10 @@ function xmlAdjust(xml, moveElem = true) {
         //1.前面有联合谓语标记，且主语和标记间有谓语
         let ccUni = sbj
           .elementsBeforeSelf(XmlTags.C_CC)
-          .lastOrDefault(
-            (p) =>
-              p.hasAttribute(XmlTags.A_Fun) &&
-              p.getAttribute(XmlTags.A_Fun) == XmlTags.V_Fun_UNI
-          );
+          .lastOrDefault((p) => p.hasAttribute(XmlTags.A_Fun) && p.getAttribute(XmlTags.A_Fun) == XmlTags.V_Fun_UNI);
         if (ccUni != null) {
-          let sbjBeforePrd = sbj
-            .elementsBeforeSelf(XmlTags.C_Wei)
-            .lastOrDefault();
-          let sbjAfterPrd = sbj
-            .elementsAfterSelf(XmlTags.C_Wei)
-            .firstOrDefault();
+          let sbjBeforePrd = sbj.elementsBeforeSelf(XmlTags.C_Wei).lastOrDefault();
+          let sbjAfterPrd = sbj.elementsAfterSelf(XmlTags.C_Wei).firstOrDefault();
           let isAfterMatch = false;
           //后面无谓语 || 后面谓语之间有主语或谓语连词标记
           if (
@@ -44,11 +36,7 @@ function xmlAdjust(xml, moveElem = true) {
           )
             isAfterMatch = true;
 
-          if (
-            sbjBeforePrd != null &&
-            ccUni.isBefore(sbjBeforePrd) &&
-            isAfterMatch
-          ) {
+          if (sbjBeforePrd != null && ccUni.isBefore(sbjBeforePrd) && isAfterMatch) {
             sbj.setAttribute(XmlTags.A_Inv, 1);
             if (moveElem) ccUni.addAfterSelf(sbj);
           }
@@ -58,9 +46,7 @@ function xmlAdjust(xml, moveElem = true) {
           sbj.elementsBeforeSelf(XmlTags.C_Wei).length > 0 &&
           sbj.elementsBeforeSelf(XmlTags.C_Zhu).length == 0
         ) {
-          let sbjBeforePrd = sbj
-            .elementsBeforeSelf(XmlTags.C_Wei)
-            .lastOrDefault();
+          let sbjBeforePrd = sbj.elementsBeforeSelf(XmlTags.C_Wei).lastOrDefault();
 
           // 主谓		主谓C谓		谓C主谓		谓C谓主
           // 谓			主谓			谓				主谓
@@ -70,8 +56,7 @@ function xmlAdjust(xml, moveElem = true) {
           // 1、顶起复句或附加成分中复句 禁止倒装    2、主语到前面谓语间不能有带属性的连词成分
           let elems = xml.elements();
           if (
-            (!sbj.parentNode.nameIs(XmlTags.C_Sent) &&
-              getXjSpans(xml).length > 1) ||
+            (!sbj.parentNode.nameIs(XmlTags.C_Sent) && getXjSpans(xml).length > 1) ||
             elems
               .filter((p) => p.isAfter(sbjBeforePrd) && p.isBefore(sbj))
               .some(
@@ -114,8 +99,7 @@ function xmlAdjust(xml, moveElem = true) {
         const xelem = elems[i];
         // 1、多谓核连词    2、主语    3、谓语且sect已有谓语时（谓+合成cc+谓归到1个sect，合成cc+谓之间有其他成分则算2个sect）
         if (
-          (xelem.nameIs(XmlTags.C_CC) &&
-            xelem.getAttribute(XmlTags.A_Fun) != XmlTags.V_Fun_SYN) ||
+          (xelem.nameIs(XmlTags.C_CC) && xelem.getAttribute(XmlTags.A_Fun) != XmlTags.V_Fun_SYN) ||
           xelem.nameIs(XmlTags.C_Zhu) ||
           (!xelem.nameIs(XmlTags.C_Wei) &&
             sect.some((o) => o.nameIs(XmlTags.C_Wei)) &&
@@ -134,23 +118,12 @@ function xmlAdjust(xml, moveElem = true) {
       for (let i = 0; i < sections.length; i++) {
         const section = sections[i];
         // console.log(section);
-        let lastObjIdx = findLastIndex(
-          section,
-          (p) => p.tagName == XmlTags.C_Bin
-        );
-        if (
-          lastObjIdx > -1 &&
-          section.some(
-            (p) => p.tagName == XmlTags.C_Wei && section.indexOf(p) > lastObjIdx
-          )
-        ) {
+        let lastObjIdx = findLastIndex(section, (p) => p.tagName == XmlTags.C_Bin);
+        if (lastObjIdx > -1 && section.some((p) => p.tagName == XmlTags.C_Wei && section.indexOf(p) > lastObjIdx)) {
           let lastObj = section[lastObjIdx];
           lastObj.setAttribute(XmlTags.A_Inv, 1);
           if (moveElem) {
-            let insertPrd = section.find(
-              (p) =>
-                p.tagName == XmlTags.C_Wei && section.indexOf(p) > lastObjIdx
-            );
+            let insertPrd = section.find((p) => p.tagName == XmlTags.C_Wei && section.indexOf(p) > lastObjIdx);
             insertPrd.addAfterSelf(lastObj);
           }
         }
@@ -173,12 +146,100 @@ function adjustStack2Grid(oriXml, uuXml) {
   let uu = xml.element(XmlTags.C_UU);
   if (uu == null) {
     uu = uuXml != null ? uuXml : xmlDoc.createElement(XmlTags.C_UU);
-    if (xml.tagName == XmlTags.C_Ding || xml.tagName == XmlTags.C_Zhuang)
-      xml.append(uu);
+    if (xml.tagName == XmlTags.C_Ding || xml.tagName == XmlTags.C_Zhuang) xml.append(uu);
     else if (xml.tagName == XmlTags.C_Bu) xml.addFirst(uu);
   }
   // console.log(xml.outerHTML)
   return xml;
+}
+
+/**
+ * 针对节点子元素数组，获取可以判定构成小句的起止索引位置列表
+ * @param {Element} node
+ * @returns {Array} {s: , e: }
+ */
+function getXjSpans(node) {
+  let spans = [];
+  let children = node.elements();
+  let afterPrd = false;
+  let start = -1;
+  let npcore = isNpCore(node);
+  for (let i = 0; i < children.length; i++) {
+    if (isPrdPeeredCompt(children[i], true)) {
+      if (afterPrd) {
+        if (children[i].nameIs(XmlTags.C_CC) && children[i].hasAttributes()) afterPrd = false;
+        else if (
+          children[i].nameIs(XmlTags.C_Zhu, XmlTags.C_Wei, XmlTags.C_Zhuang) ||
+          (children[i].nameIs(XmlTags.C_CC) && !children[i].hasAttributes())
+        ) {
+          spans.push({
+            s: start,
+            e: i - 1,
+          });
+          start = i;
+          afterPrd = children[i].nameIs(XmlTags.C_Wei);
+        }
+        // 独立语处理
+        else if (children[i].nameIs(XmlTags.C_Ind)) {
+          let j = i + 1;
+          let next = children[j];
+          while (next && next.nameIs(XmlTags.C_Ind)) {
+            next = children[++j];
+          }
+          // 1、小句以独立语结尾
+          if (next == null) {
+            spans.push({
+              s: start,
+              e: j - 1,
+            });
+          }
+          // 2、小句中间的独立语，归属于下一小句
+          else if (
+            next.nameIs(XmlTags.C_Zhu, XmlTags.C_Wei, XmlTags.C_Zhuang) ||
+            (next.nameIs(XmlTags.C_CC) && !next.hasAttributes())
+          ) {
+            spans.push({
+              s: start,
+              e: i - 1,
+            });
+            start = i;
+            afterPrd = false;
+          }
+        }
+        // UV处理 成分复句中连续两个UV，前一个上一句，后一个归下一句
+        else if (children[i].nameIs(XmlTags.C_UV) && children[i + 1] && children[i + 1].nameIs(XmlTags.C_UV)) {
+          spans.push({
+            s: start,
+            e: i,
+          });
+          start = i + 1;
+          afterPrd = false;
+        }
+      } else {
+        if (start == -1 && !(npcore && children[i].nameIs(XmlTags.C_Ind))) start = i;
+        if (children[i].nameIs(XmlTags.C_Wei)) afterPrd = true;
+      }
+    } else if (afterPrd) {
+      let j = i - 1;
+      if (npcore) while (children[j].nameIs(XmlTags.C_Ind)) j--;
+      spans.push({
+        s: start,
+        e: j,
+      });
+      start = -1;
+      afterPrd = false;
+    }
+  }
+  if (afterPrd) {
+    let j = children.length - 1;
+    if (npcore) while (children[j].nameIs(XmlTags.C_Ind)) j--;
+
+    spans.push({
+      s: start,
+      e: j,
+    });
+  }
+  return spans;
 }
 
 //#region 判断元素节点性质
@@ -188,10 +249,7 @@ function adjustStack2Grid(oriXml, uuXml) {
  * @returns {Boolean}
  */
 function isNpCore(elem) {
-  return (
-    elem.nameIs(XmlTags.C_Zhu, XmlTags.C_Bin) ||
-    elem.elements().some((e) => hasNpTag(e))
-  );
+  return elem.nameIs(XmlTags.C_Zhu, XmlTags.C_Bin) || elem.elements().some((e) => hasNpTag(e));
 }
 
 /**
@@ -204,8 +262,7 @@ function hasNpTag(elem) {
     elem.nameIs(XmlTags.C_PP, XmlTags.C_FF, XmlTags.C_UN, XmlTags.C_Ding) ||
     (elem.nameIs(XmlTags.C_CC) &&
       elem.hasAttribute(XmlTags.A_Fun) &&
-      (elem.getAttribute(XmlTags.A_Fun) == XmlTags.V_Fun_COO ||
-        elem.getAttribute(XmlTags.A_Fun) == XmlTags.V_Fun_APP))
+      (elem.getAttribute(XmlTags.A_Fun) == XmlTags.V_Fun_COO || elem.getAttribute(XmlTags.A_Fun) == XmlTags.V_Fun_APP))
   );
 }
 
@@ -220,9 +277,7 @@ function isMainCompt(elem, includeCcUv) {
     elem.nameIs(XmlTags.C_Zhu, XmlTags.C_Wei, XmlTags.C_Bin) ||
     (includeCcUv &&
       ((elem.nameIs(XmlTags.C_CC) &&
-        ![XmlTags.V_Fun_COO, XmlTags.V_Fun_APP, XmlTags.V_Fun_COO1].contains(
-          elem.getAttribute(XmlTags.A_Fun)
-        )) ||
+        ![XmlTags.V_Fun_COO, XmlTags.V_Fun_APP, XmlTags.V_Fun_COO1].contains(elem.getAttribute(XmlTags.A_Fun))) ||
         elem.nameIs(XmlTags.C_UV)))
   );
 }
@@ -250,9 +305,7 @@ function isComptInLifter(elem) {
  */
 function isPrdPeeredCompt(elem, includeInd) {
   return (
-    isMainCompt(elem, true) ||
-    elem.nameIs(XmlTags.C_Zhuang, XmlTags.C_Bu) ||
-    (includeInd && elem.nameIs(XmlTags.C_Ind))
+    isMainCompt(elem, true) || elem.nameIs(XmlTags.C_Zhuang, XmlTags.C_Bu) || (includeInd && elem.nameIs(XmlTags.C_Ind))
   );
 }
 //#endregion
@@ -274,9 +327,10 @@ function createIndexFinder(dir) {
 
 const findLastIndex = createIndexFinder(-1);
 
-import XmlTags from './xml_tags';
+import XmlTags from "./xml_tags";
 
 export default {
+  getXjSpans,
   adjustStack2Grid,
   xmlAdjust,
   isNpCore,

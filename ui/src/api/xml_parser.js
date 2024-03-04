@@ -11,7 +11,7 @@ function getInitialXml(text) {
   let x1 = xmlDoc.createElement(XmlTags.W_QueSheng);
   sbj.append(x1);
   let prd = xmlDoc.createElement(XmlTags.C_Wei);
-  prd.setAttribute(XmlTags.A_Scp, 'V');
+  prd.setAttribute(XmlTags.A_Scp, "V");
   let x2 = xmlDoc.createElement(XmlTags.W_QueSheng);
   if (text != undefined) x2.innerHTML = text;
   prd.append(x2);
@@ -32,7 +32,7 @@ function getInitialSentXml(text) {
   let x1 = xmlDoc.createElement(XmlTags.W_QueSheng);
   sbj.append(x1);
   let prd = xmlDoc.createElement(XmlTags.C_Wei);
-  prd.setAttribute(XmlTags.A_Scp, 'V');
+  prd.setAttribute(XmlTags.A_Scp, "V");
   let x2 = xmlDoc.createElement(XmlTags.W_QueSheng);
   if (text != undefined) x2.innerHTML = text;
   prd.append(x2);
@@ -62,7 +62,7 @@ function generateXml4Copy(compt, region) {
   // console.log(xml.cloneNode(true));
   let xmlDoc = new Document();
 
-  let iniType = compt.iniType == undefined ? '' : compt.iniType;
+  let iniType = compt.iniType == undefined ? "" : compt.iniType;
   let result = xmlDoc.createElement(XmlTags.O_Copy);
   if ([XmlTags.C_Zhu, XmlTags.C_Wei, XmlTags.C_Bin].contains(iniType)) {
     let lefts = compt.leftRegionCompts();
@@ -99,9 +99,7 @@ function generateXml4Copy(compt, region) {
 function componentsAddToXml(current, compts, elem) {
   let prevs = []; //前向成分
   //NP结构中是否首次经过核心词，经过后所有归属NP的成分都添加到向前NP核心里面
-  let copyObj =
-    elem.tagName == XmlTags.O_Copy &&
-    current.belongIniType(XmlTags.C_Zhu, XmlTags.C_Bin);
+  let copyObj = elem.tagName == XmlTags.O_Copy && current.belongIniType(XmlTags.C_Zhu, XmlTags.C_Bin);
   let passNpCore = copyObj;
   let passObjSep = false; // 是否经过宾语分隔符
   // console.log(current.iniType);
@@ -110,7 +108,7 @@ function componentsAddToXml(current, compts, elem) {
   for (let i = 0; i < items.length; i++) {
     const item = items[i];
     let iType = item.iniType;
-    let iTypeUp = iType == undefined ? '' : iType.toUpperCase();
+    let iTypeUp = iType == undefined ? "" : iType.toUpperCase();
 
     // C1 谓语分隔符 ->  cc
     if (item.belongType(PrdSep)) {
@@ -129,8 +127,7 @@ function componentsAddToXml(current, compts, elem) {
       //独立连词或UNI
       if (
         elName == XmlTags.C_CC &&
-        (!el.hasAttribute(XmlTags.A_Fun) ||
-          el.getAttribute(XmlTags.A_Fun).equalIgnoreCase(XmlTags.V_Fun_UNI))
+        (!el.hasAttribute(XmlTags.A_Fun) || el.getAttribute(XmlTags.A_Fun).equalIgnoreCase(XmlTags.V_Fun_UNI))
       ) {
         elem.appendChild(el);
         passNpCore = false;
@@ -138,23 +135,14 @@ function componentsAddToXml(current, compts, elem) {
       }
 
       //PP UN CC FF
-      if (
-        iType == XmlTags.C_PP ||
-        iType == XmlTags.C_UN ||
-        elName == XmlTags.C_CC ||
-        iType == XmlTags.C_FF
-      ) {
+      if (iType == XmlTags.C_PP || iType == XmlTags.C_UN || elName == XmlTags.C_CC || iType == XmlTags.C_FF) {
         if (!passNpCore) prevs.push(el);
         else if (copyObj) elem.appendChild(el);
         else elem.lastChild.appendChild(el);
         continue;
       }
 
-      if (
-        el.tagName == XmlTags.O_Temp ||
-        iType == XmlTags.C_Zhu ||
-        iType == XmlTags.C_Bin
-      ) {
+      if (el.tagName == XmlTags.O_Temp || iType == XmlTags.C_Zhu || iType == XmlTags.C_Bin) {
         // console.log(elem.cloneNode(true))
         if (prevs.length > 0) {
           // console.log(344)
@@ -192,9 +180,7 @@ function componentsAddToXml(current, compts, elem) {
         let prdCC = items.find(
           (p) =>
             items.indexOf(p) > i &&
-            (p.iniType == XmlTags.V_Fun_SER ||
-              p.iniType == XmlTags.V_Fun_PVT ||
-              p.iniType == XmlTags.V_Fun_UNI)
+            (p.iniType == XmlTags.V_Fun_SER || p.iniType == XmlTags.V_Fun_PVT || p.iniType == XmlTags.V_Fun_UNI)
         );
         // 3.2.1 NP有前向成分 或 刚经过ObjSep
         if (prevs.length > 0 || (passObjSep && !passNpCore)) {
@@ -208,9 +194,7 @@ function componentsAddToXml(current, compts, elem) {
             items.some(
               (p) =>
                 items.indexOf(p) > i &&
-                (p.iniType == XmlTags.C_Bin ||
-                  p.iniType == XmlTags.C_FF ||
-                  p.iniType == XmlTags.C_UN) &&
+                (p.iniType == XmlTags.C_Bin || p.iniType == XmlTags.C_FF || p.iniType == XmlTags.C_UN) &&
                 (prdCC == undefined || items.indexOf(p) < items.indexOf(prdCC))
             ))
         )
@@ -233,8 +217,7 @@ function componentsAddToXml(current, compts, elem) {
           }
         } else {
           // 主、宾单独顶起一个谓语
-          if (el.childElementCount == 1 && el.element(XmlTags.C_Wei))
-            el.firstChild.removeSelfTag();
+          if (el.childElementCount == 1 && el.element(XmlTags.C_Wei)) el.firstChild.removeSelfTag();
 
           elem.appendChild(el);
         }
@@ -262,11 +245,7 @@ function componentsAddToXml(current, compts, elem) {
   }
 
   //att adv cmp ind中的NP结构，去除obj标记
-  if (
-    passNpCore &&
-    elem.element(XmlTags.C_Wei) == null &&
-    current.belongIniType(XmlTags.C_Sub)
-  ) {
+  if (passNpCore && elem.element(XmlTags.C_Wei) == null && current.belongIniType(XmlTags.C_Sub)) {
     let innerObj = elem.element(XmlTags.C_Bin);
     if (innerObj != null) {
       innerObj.removeSelfTag();
@@ -294,25 +273,17 @@ function convert2Parse(inXml, type, needWrap, isInMainLine) {
 
   let elems = inXml.elements();
   // 限制：NP无法往谓语复制 todo待完善
-  if (
-    type == XmlTags.C_Wei &&
-    elems.some((o) => XmlExtends.hasNpTag(o) || o.tagName == XmlTags.C_UU)
-  )
-    return null;
+  if (type == XmlTags.C_Wei && elems.some((o) => XmlExtends.hasNpTag(o) || o.tagName == XmlTags.C_UU)) return null;
 
   // 限制：虚词位只接受单个词
-  if (XmlTags.C_XX.contains(type) && elems.some((o) => o.tagName.length > 1))
-    return null;
+  if (XmlTags.C_XX.contains(type) && elems.some((o) => o.tagName.length > 1)) return null;
 
   let isOnlySbj = inXml.elements().some((o) => o.tagName.length == 1);
   let xmlDoc = new Document();
   // 复制到定、状、补、独整体时，需要包裹一层type节点
   if (
     type == XmlTags.O_Temp ||
-    (needWrap &&
-      [XmlTags.C_Ding, XmlTags.C_Zhuang, XmlTags.C_Bu, XmlTags.C_Ind].contains(
-        type
-      ))
+    (needWrap && [XmlTags.C_Ding, XmlTags.C_Zhuang, XmlTags.C_Bu, XmlTags.C_Ind].contains(type))
   ) {
     let newNode = xmlDoc.createElement(type);
     let child = inXml.firstChild;
@@ -325,12 +296,7 @@ function convert2Parse(inXml, type, needWrap, isInMainLine) {
     // UU开头复制到Generic、定、状、独时，去掉UU
     if (
       child.tagName == XmlTags.C_UU &&
-      [
-        XmlTags.O_Temp,
-        XmlTags.C_Ding,
-        XmlTags.C_Zhuang,
-        XmlTags.C_Ind,
-      ].contains(type)
+      [XmlTags.O_Temp, XmlTags.C_Ding, XmlTags.C_Zhuang, XmlTags.C_Ind].contains(type)
     ) {
       child.remove();
       child = inXml.firstChild;
@@ -338,13 +304,8 @@ function convert2Parse(inXml, type, needWrap, isInMainLine) {
 
     while (child != null) {
       // 带连词独词句复制到其他成分时，需要CC转PP
-      if (
-        isOnlySbj &&
-        child.tagName == XmlTags.C_CC &&
-        !child.hasAttribute(XmlTags.A_Fun)
-      ) {
-        if (child.firstElementChild)
-          child.firstElementChild.replaceTagName(XmlTags.W_Jie);
+      if (isOnlySbj && child.tagName == XmlTags.C_CC && !child.hasAttribute(XmlTags.A_Fun)) {
+        if (child.firstElementChild) child.firstElementChild.replaceTagName(XmlTags.W_Jie);
         child = child.replaceTagName(XmlTags.C_PP);
       }
 
@@ -364,43 +325,31 @@ function convert2Parse(inXml, type, needWrap, isInMainLine) {
     inXml.append(newNode);
   }
   // 主、宾位包含顶起
-  else if (
-    inXml.element(XmlTags.C_Wei) != null &&
-    (type == XmlTags.C_Zhu || type == XmlTags.C_Bin)
-  ) {
+  else if (inXml.element(XmlTags.C_Wei) != null && (type == XmlTags.C_Zhu || type == XmlTags.C_Bin)) {
     let wrap = xmlDoc.createElement(type);
     wrap.appendArray(elems);
     inXml.append(wrap);
   }
   // 带UU的定、状、补复制到主、宾位
-  else if (
-    inXml.element(XmlTags.C_UU) != null &&
-    [XmlTags.C_Zhu, XmlTags.C_Bin].contains(type)
-  ) {
+  else if (inXml.element(XmlTags.C_UU) != null && [XmlTags.C_Zhu, XmlTags.C_Bin].contains(type)) {
     let uu = inXml.element(XmlTags.C_UU);
     uu.remove();
   }
 
   // 替换最外层节点
-  let rpNodes = [XmlTags.C_Zhu, XmlTags.C_Bin, XmlTags.O_Temp].concat(
-    XmlTags.C_XX
-  );
+  let rpNodes = [XmlTags.C_Zhu, XmlTags.C_Bin, XmlTags.O_Temp].concat(XmlTags.C_XX);
   if (rpNodes.contains(type)) {
     // 带连词独词句复制到其他成分时，需要CC转PP
     if (isOnlySbj) {
       let cc = inXml.element(XmlTags.C_CC);
       if (cc != null && !cc.hasAttribute(XmlTags.A_Fun)) {
-        if (cc.firstElementChild)
-          cc.firstElementChild.replaceTagName(XmlTags.W_Jie);
+        if (cc.firstElementChild) cc.firstElementChild.replaceTagName(XmlTags.W_Jie);
         cc.replaceTagName(XmlTags.C_PP);
       }
     }
 
     inXml = inXml.replaceTagName(type);
-  } else if (
-    type == XmlTags.C_Wei &&
-    elems.every((o) => o.tagName.length == 1)
-  ) {
+  } else if (type == XmlTags.C_Wei && elems.every((o) => o.tagName.length == 1)) {
     let wrap = xmlDoc.createElement(type);
     wrap.appendArray(elems);
     inXml.append(wrap);
@@ -462,11 +411,7 @@ function convert2Paste(inXml, type, isInMainLine) {
     let removes = [];
     let passPrd = false;
     xml.elements().forEach((el) => {
-      if (
-        el.tagName == XmlTags.C_Ding ||
-        el.tagName == XmlTags.C_PP ||
-        (!passPrd && el.tagName == XmlTags.C_UN)
-      ) {
+      if (el.tagName == XmlTags.C_Ding || el.tagName == XmlTags.C_PP || (!passPrd && el.tagName == XmlTags.C_UN)) {
         pre.append(el);
         removes.push(el);
       } else if (el.tagName == XmlTags.C_FF || el.tagName == XmlTags.C_UN) {
@@ -492,8 +437,7 @@ function convert2Paste(inXml, type, isInMainLine) {
         if (next.childElementCount > 0) {
           var lastNode = next.lastElementChild;
           var tag =
-            el.parentElement.tagName == XmlTags.O_Temp &&
-            xml.element(XmlTags.C_Bin) == null
+            el.parentElement.tagName == XmlTags.O_Temp && xml.element(XmlTags.C_Bin) == null
               ? XmlTags.C_Bin
               : el.parentElement.tagName;
           if (lastNode.tagName == tag) lastNode.append(el);
@@ -502,8 +446,7 @@ function convert2Paste(inXml, type, isInMainLine) {
           }
         }
       } else if (
-        (!passNpCore &&
-          (el.tagName == XmlTags.C_UN || el.tagName == XmlTags.C_Ding)) ||
+        (!passNpCore && (el.tagName == XmlTags.C_UN || el.tagName == XmlTags.C_Ding)) ||
         el.tagName == XmlTags.C_PP
       )
         pre.append(el);
@@ -525,13 +468,8 @@ function convert2Paste(inXml, type, isInMainLine) {
     let passPrd = false;
 
     xml.elements().forEach((el) => {
-      if (
-        (el.tagName == XmlTags.C_Zhuang && !passPrd) ||
-        el.tagName == XmlTags.C_Zhu
-      )
-        pre.append(el);
-      else if (el.tagName == XmlTags.C_Zhuang || el.tagName == XmlTags.C_Bu)
-        next.append(el);
+      if ((el.tagName == XmlTags.C_Zhuang && !passPrd) || el.tagName == XmlTags.C_Zhu) pre.append(el);
+      else if (el.tagName == XmlTags.C_Zhuang || el.tagName == XmlTags.C_Bu) next.append(el);
       else if (el.tagName == XmlTags.C_Bin) {
         //todo带标点的处理
         el.elements().forEach((iel) => {});
@@ -555,25 +493,10 @@ function convert2Paste(inXml, type, isInMainLine) {
  * @param {Number} removeOnlyObj 是否仅移除成分右边辖域内宾语（默认移除所以右边辖域成分），默认为0否
  * @returns
  */
-function parseXml2Compt(
-  compt,
-  type,
-  xml,
-  autoTag = true,
-  removeLeft = 1,
-  removeOnlyObj = 0
-) {
-  if (
-    compt == null ||
-    (compt.parentCompt == null && type != XmlTags.O_Sent) ||
-    xml == null
-  )
-    return;
+function parseXml2Compt(compt, type, xml, autoTag = true, removeLeft = 1, removeOnlyObj = 0) {
+  if (compt == null || (compt.parentCompt == null && type != XmlTags.O_Sent) || xml == null) return;
 
-  if (
-    compt.belongIniType(XmlTags.O_Temp) &&
-    xml.element(XmlTags.O_Temp) != null
-  ) {
+  if (compt.belongIniType(XmlTags.O_Temp) && xml.element(XmlTags.O_Temp) != null) {
     compt = compt.parentCompt;
     xml.firstElementChild.replaceTagName(compt.iniType);
   }
@@ -589,10 +512,7 @@ function parseXml2Compt(
     let prdExtend = compt.prdExtend();
     let leftPrd = compt.nearestLeftCompt(XmlTags.C_Wei);
     let leftElem = compt.nearestLeftElem();
-    let beforeIsSyn =
-      prdExtend == PrdExtend.NORMAL &&
-      leftPrd != null &&
-      leftPrd.prdExtend() == PrdExtend.SYN;
+    let beforeIsSyn = prdExtend == PrdExtend.NORMAL && leftPrd != null && leftPrd.prdExtend() == PrdExtend.SYN;
     let beforeIsSbjSep = leftElem != null && leftElem.belongType(SbjSep);
     // 限制：1. 合成（前边非主语分隔符）、连动、兼语谓语不能复制出主谓结构    2. 谓语前边是合成不能复制出主谓结构
     // 3. 合成谓语上限制出补语
@@ -636,16 +556,11 @@ function parseXml2Compt(
     // 后续辖域内空宾语的位置
     if (nrObj != null && nrObj.column <= col + rr) {
       hasObj = true;
-      if (nrObj.toXml().textContent == '')
-        emptyObjCol = nrObj.column - (col - start) - 1;
+      if (nrObj.toXml().textContent == "") emptyObjCol = nrObj.column - (col - start) - 1;
       else if (removeOnlyObj == 1) {
-        let lastPrdEl = xml
-          .elements()
-          .lastOrDefault((o) => o.tagName == XmlTags.C_Wei);
+        let lastPrdEl = xml.elements().lastOrDefault((o) => o.tagName == XmlTags.C_Wei);
         if (lastPrdEl != null) {
-          let lastObjEl = lastPrdEl
-            .elementsAfterSelf(XmlTags.C_Bin)
-            .lastOrDefault();
+          let lastObjEl = lastPrdEl.elementsAfterSelf(XmlTags.C_Bin).lastOrDefault();
           if (lastObjEl != null && lastObjEl.isEmptyX()) {
             lastObjEl.remove();
           }
@@ -656,10 +571,7 @@ function parseXml2Compt(
     // 如果是主谓谓语句，则移除后面所有成份
     if (xml.element(XmlTags.C_Wei) != null && xml.childElementCount == 1) {
       let first = xml.firstElementChild;
-      if (
-        first.element(XmlTags.C_Zhu) != null &&
-        first.element(XmlTags.C_Wei) != null
-      ) {
+      if (first.element(XmlTags.C_Zhu) != null && first.element(XmlTags.C_Wei) != null) {
         removeOnlyObj = 0;
       }
     }
@@ -694,13 +606,12 @@ function parseXml2Compt(
     let cType = getComponentType(xml);
     if (cType == StackCompt) {
       let newNode = wrapXjNode(xml);
-      if (compt.isInMainLine)
-        newNode.elements().forEach((o) => appendEmptyObj(o));
+      if (compt.isInMainLine) newNode.elements().forEach((o) => appendEmptyObj(o));
 
       let ppCompt = pCompt.parentCompt;
       // 1. grid转stack
       if (ppCompt == null) {
-        let diagram = compt.ancestor('Diagram');
+        let diagram = compt.ancestor("Diagram");
         diagram.type = StackCompt;
         diagram.$nextTick(() => {
           let row = 1;
@@ -710,14 +621,7 @@ function parseXml2Compt(
           for (let i = 0; i < xjs.length; i++) {
             const xj = i == 0 ? pCompt.toXml() : xjs[i];
             GridUtil.addRow(diagram.compt, row);
-            GridUtil.addItem(
-              GridCompt,
-              diagram.compt,
-              row,
-              1,
-              XmlTags.O_Sent,
-              xj
-            );
+            GridUtil.addItem(GridCompt, diagram.compt, row, 1, XmlTags.O_Sent, xj);
             row++;
           }
           let re = row;
@@ -727,11 +631,9 @@ function parseXml2Compt(
           diagram.$nextTick(() => {
             let oldGrid = diagram.compt.childrenItems.find((o) => o.row == 1);
             if (oldGrid != null) {
-              oldGrid.$on('GridUpdated', () => {
-                oldGrid.$off('GridUpdated');
-                let oldCompt = oldGrid.childrenItems.find(
-                  (o) => o.column == col && o.belongType(TextCompt)
-                );
+              oldGrid.$on("GridUpdated", () => {
+                oldGrid.$off("GridUpdated");
+                let oldCompt = oldGrid.childrenItems.find((o) => o.column == col && o.belongType(TextCompt));
                 if (oldCompt != null) {
                   parseXml2Compt(oldCompt, XmlTags.C_Wei, oldXml);
                 }
@@ -759,15 +661,7 @@ function parseXml2Compt(
       xml = newNode.firstElementChild;
     }
 
-    end =
-      initialComptItems(
-        pCompt,
-        xml.firstElementChild,
-        start,
-        XmlTags.O_Temp,
-        xml.tagName,
-        skipSbjJudge
-      ) - 1;
+    end = initialComptItems(pCompt, xml.firstElementChild, start, XmlTags.O_Temp, xml.tagName, skipSbjJudge) - 1;
   }
   // 2. 复制到小句
   else if (type == XmlTags.O_Sent) {
@@ -775,13 +669,10 @@ function parseXml2Compt(
 
     // 1. grid
     if (pCompt == null) {
-      let diagram = compt.ancestor('Diagram');
+      let diagram = compt.ancestor("Diagram");
       // 1.1 单个xj，xml替换
       if (xml.elements(XmlTags.C_Sent).length <= 1) {
-        xml =
-          xml.element(XmlTags.C_Sent) != null
-            ? xml.element(XmlTags.C_Sent)
-            : xml.replaceTagName(XmlTags.C_Sent);
+        xml = xml.element(XmlTags.C_Sent) != null ? xml.element(XmlTags.C_Sent) : xml.replaceTagName(XmlTags.C_Sent);
         diagram.xml = xml;
         diagram.compt.items = [];
         diagram.$nextTick(() => {
@@ -798,14 +689,7 @@ function parseXml2Compt(
           for (let i = 0; i < xjs.length; i++) {
             const xj = xjs[i];
             GridUtil.addRow(diagram.compt, row);
-            GridUtil.addItem(
-              GridCompt,
-              diagram.compt,
-              row,
-              1,
-              XmlTags.O_Sent,
-              xj
-            );
+            GridUtil.addItem(GridCompt, diagram.compt, row, 1, XmlTags.O_Sent, xj);
             row++;
           }
           end = row;
@@ -837,22 +721,14 @@ function parseXml2Compt(
   }
   // 3. 复制到虚词位
   else if (XmlTags.C_XX.contains(type)) {
-    compt.updateParentItem('xml', xml);
+    compt.updateParentItem("xml", xml);
     compt.fromXml();
   }
   // 4. 复制到其他
   else {
     // todo 带xj包裹的复句复制到主宾时需要去掉xj
     GridUtil.delColumn(pCompt, start);
-    end =
-      initialComptItems(
-        pCompt,
-        xml.firstElementChild,
-        start,
-        XmlTags.O_Temp,
-        xml.tagName,
-        false
-      ) - 1;
+    end = initialComptItems(pCompt, xml.firstElementChild, start, XmlTags.O_Temp, xml.tagName, false) - 1;
   }
 
   // console.log("s" + start + ",e" + end);
@@ -867,9 +743,8 @@ function activeStackChildren(compt, start, end, autoTag, sentId) {
       .filter((o) => o.row >= start && o.row <= end)
       .forEach((ci) => {
         if (ci != null) {
-          if (ci.belongType('BaseCompt')) ci.fromXml(autoTag);
-          if (ci.belongType(GridCompt) && ci.sentId == 0 && sentId)
-            ci.sentId = sentId;
+          if (ci.belongType("BaseCompt")) ci.fromXml(autoTag);
+          if (ci.belongType(GridCompt) && ci.sentId == 0 && sentId) ci.sentId = sentId;
           ci.active();
         }
       });
@@ -882,7 +757,7 @@ function activeGridChildren(compt, start, end, autoTag) {
       .filter((o) => o.column >= start && o.column <= end)
       .forEach((ci) => {
         if (ci != null) {
-          if (ci.belongType('BaseCompt')) ci.fromXml(autoTag);
+          if (ci.belongType("BaseCompt")) ci.fromXml(autoTag);
           ci.active();
         }
       });
@@ -911,11 +786,7 @@ function pasteXml2Compt(compt, type, xml, removeLeft) {
     let col = compt.column;
     let fr = compt.leftRegion(0, 1, 0);
     let hasUV =
-      next != null &&
-      next.firstElementChild != null &&
-      next.firstElementChild.tagName == XmlTags.C_UV
-        ? 1
-        : 0;
+      next != null && next.firstElementChild != null && next.firstElementChild.tagName == XmlTags.C_UV ? 1 : 0;
     let rr = compt.rightRegion(0, 1, hasUV);
 
     start = col;
@@ -935,7 +806,7 @@ function pasteXml2Compt(compt, type, xml, removeLeft) {
     pCompt.items.push({
       xml: core,
       component: type,
-      text: '',
+      text: "",
       row: 1,
       column: start,
       iniType: core.tagName,
@@ -958,7 +829,7 @@ function pasteXml2Compt(compt, type, xml, removeLeft) {
           component: ObjSep,
           row: 1,
           column: col,
-          iniType: node.hasAttribute(XmlTags.A_Inv) ? XmlTags.A_Inv : '',
+          iniType: node.hasAttribute(XmlTags.A_Inv) ? XmlTags.A_Inv : "",
         });
         end++;
       }
@@ -969,7 +840,7 @@ function pasteXml2Compt(compt, type, xml, removeLeft) {
       pCompt.items.push({
         xml: node,
         component: type,
-        text: '',
+        text: "",
         row: row,
         column: col,
         iniType: node.tagName,
@@ -997,7 +868,7 @@ function pasteXml2Compt(compt, type, xml, removeLeft) {
           component: SbjSep,
           row: 1,
           column: col,
-          iniType: node.hasAttribute(XmlTags.A_Inv) ? XmlTags.A_Inv : '',
+          iniType: node.hasAttribute(XmlTags.A_Inv) ? XmlTags.A_Inv : "",
         });
         end++;
       }
@@ -1008,7 +879,7 @@ function pasteXml2Compt(compt, type, xml, removeLeft) {
       pCompt.items.push({
         xml: node,
         component: type,
-        text: '',
+        text: "",
         row: row,
         column: col,
         iniType: node.tagName,
@@ -1022,7 +893,7 @@ function pasteXml2Compt(compt, type, xml, removeLeft) {
   pCompt.$nextTick(() => {
     for (let i = start; i <= end; i++) {
       const ci = pCompt.childrenItems.find((o) => o.column == i);
-      if (ci != null && ci.belongType('BaseCompt')) {
+      if (ci != null && ci.belongType("BaseCompt")) {
         // console.log(i);
         ci.fromXml(); //todo 单个TextCompt词性义项会丢失
       }
@@ -1037,7 +908,7 @@ function initialItems(compt, autoTag) {
   let xml = compt.xml;
   let childNodes = [];
   //图形初始化
-  if (compt.belongType('Diagram') && XmlTags.C_FullSent == xml.tagName) {
+  if (compt.belongType("Diagram") && XmlTags.C_FullSent == xml.tagName) {
     // console.log(xml.cloneNode(true));
     compt.type = getComponentType(xml);
     // console.log('compt.type', compt.type, compt.type == GridCompt);
@@ -1136,27 +1007,14 @@ function initialComptItems(compt, node, col, mergeTag, xmlTag, skipSbjJudge) {
         pNode.tagName == XmlTags.C_Bin ||
         pNode.elements().some((o) => XmlExtends.hasNpTag(o))
       ) {
-        iniType =
-          pNode.tagName == XmlTags.C_Zhu ? XmlTags.C_Zhu : XmlTags.C_Bin;
+        iniType = pNode.tagName == XmlTags.C_Zhu ? XmlTags.C_Zhu : XmlTags.C_Bin;
       }
       //Generic
-      else if (
-        nName == XmlTags.C_UU ||
-        nName == XmlTags.C_CC ||
-        nName == XmlTags.C_Ind
-      )
-        iniType = XmlTags.O_Temp;
+      else if (nName == XmlTags.C_UU || nName == XmlTags.C_CC || nName == XmlTags.C_Ind) iniType = XmlTags.O_Temp;
       else iniType = node.tagName;
 
       GridUtil.addColumn(compt, col);
-      GridUtil.addItem(
-        TextCompt,
-        compt,
-        1,
-        col++,
-        iniType,
-        merge.cloneNode(true)
-      );
+      GridUtil.addItem(TextCompt, compt, 1, col++, iniType, merge.cloneNode(true));
       emptyNode(merge);
     }
 
@@ -1177,27 +1035,17 @@ function initialComptItems(compt, node, col, mergeTag, xmlTag, skipSbjJudge) {
     if (
       nName == XmlTags.C_Bin &&
       prev != null &&
-      ((prev.tagName.length == 3 && prev.tagName != XmlTags.C_Ding) ||
-        prev.tagName == XmlTags.C_UV)
+      ((prev.tagName.length == 3 && prev.tagName != XmlTags.C_Ding) || prev.tagName == XmlTags.C_UV)
     ) {
-      let iType = node.hasAttribute(XmlTags.A_Inv) ? XmlTags.A_Inv : '';
+      let iType = node.hasAttribute(XmlTags.A_Inv) ? XmlTags.A_Inv : "";
       GridUtil.addColumn(compt, col);
       GridUtil.addItem(ObjSep, compt, row, col++, iType);
     }
 
     //非顶起主语、宾语  或  联合主、宾语（如果其中有顶起，wrapLiftNode把顶起部分包裹相应节点）
-    if (
-      type == TextCompt &&
-      (nName == XmlTags.C_Zhu || nName == XmlTags.C_Bin)
-    ) {
+    if (type == TextCompt && (nName == XmlTags.C_Zhu || nName == XmlTags.C_Bin)) {
       wrapLiftNode(node, nName);
-      col = initialComptItems(
-        compt,
-        node.firstElementChild,
-        col,
-        node.tagName,
-        node.tagName
-      );
+      col = initialComptItems(compt, node.firstElementChild, col, node.tagName, node.tagName);
 
       // console.log(node.cloneNode(true));
       // 主语里不包含顶起的成分
@@ -1208,22 +1056,14 @@ function initialComptItems(compt, node, col, mergeTag, xmlTag, skipSbjJudge) {
         nodeNS != null &&
         !XmlExtends.hasNpTag(nodeNS)
       ) {
-        let iType = node.hasAttribute(XmlTags.A_Inv) ? XmlTags.A_Inv : '';
+        let iType = node.hasAttribute(XmlTags.A_Inv) ? XmlTags.A_Inv : "";
         GridUtil.addColumn(compt, col);
         GridUtil.addItem(SbjSep, compt, 1, col++, iType);
         addedSbj = true;
       }
     }
     //连词 介词 方位 UN UV
-    else if (
-      node.nameIs(
-        XmlTags.C_CC,
-        XmlTags.C_PP,
-        XmlTags.C_FF,
-        XmlTags.C_UN,
-        XmlTags.C_UV
-      )
-    ) {
+    else if (node.nameIs(XmlTags.C_CC, XmlTags.C_PP, XmlTags.C_FF, XmlTags.C_UN, XmlTags.C_UV)) {
       let column = col++;
       let flagType;
       let flagRow;
@@ -1249,9 +1089,7 @@ function initialComptItems(compt, node, col, mergeTag, xmlTag, skipSbjJudge) {
         XmlTags.CC_Text_Fun.contains(node.getAttribute(XmlTags.A_Fun))
       ) {
         let tRow;
-        let tcType = node.hasAttribute(XmlTags.A_Fun)
-          ? node.getAttribute(XmlTags.A_Fun)
-          : node.tagName;
+        let tcType = node.hasAttribute(XmlTags.A_Fun) ? node.getAttribute(XmlTags.A_Fun) : node.tagName;
 
         // 定状间连词
         if (
@@ -1265,22 +1103,10 @@ function initialComptItems(compt, node, col, mergeTag, xmlTag, skipSbjJudge) {
           tRow = 1;
         }
 
-        GridUtil.addItem(
-          TextCompt,
-          compt,
-          tRow,
-          column,
-          tcType,
-          node,
-          '',
-          null,
-          TextType.VIRTUAL
-        );
+        GridUtil.addItem(TextCompt, compt, tRow, column, tcType, node, "", null, TextType.VIRTUAL);
       }
 
-      let iType = node.hasAttribute(XmlTags.A_Fun)
-        ? node.getAttribute(XmlTags.A_Fun)
-        : node.tagName;
+      let iType = node.hasAttribute(XmlTags.A_Fun) ? node.getAttribute(XmlTags.A_Fun) : node.tagName;
       GridUtil.addItem(flagType, compt, flagRow, column, iType);
     }
     //定、状、补复句中UU
@@ -1294,10 +1120,7 @@ function initialComptItems(compt, node, col, mergeTag, xmlTag, skipSbjJudge) {
       if (nName == XmlTags.C_UU) {
         textType = TextType.VIRTUAL_CORNER;
         hasUU = true;
-        if (
-          node.parentNode.tagName == XmlTags.C_Ding ||
-          node.parentNode.tagName == XmlTags.C_Zhuang
-        ) {
+        if (node.parentNode.tagName == XmlTags.C_Ding || node.parentNode.tagName == XmlTags.C_Zhuang) {
           column = GlobalConst.GridMaxCol;
         } else if (node.parentNode.tagName == XmlTags.C_Bu) {
           column = 1;
@@ -1322,7 +1145,7 @@ function initialComptItems(compt, node, col, mergeTag, xmlTag, skipSbjJudge) {
         !isStack ? column : 1,
         nName.length == 1 ? XmlTags.O_Temp : nName,
         node,
-        '',
+        "",
         null,
         textType
       );
@@ -1346,25 +1169,14 @@ function initialComptItems(compt, node, col, mergeTag, xmlTag, skipSbjJudge) {
       !addedSbj &&
       node.tagName == XmlTags.C_Zhu &&
       type != TextCompt &&
-      ((pNode.tagName == XmlTags.C_Zhu &&
-        getComponentType(pNode) != TextCompt &&
-        nNext == null) ||
+      ((pNode.tagName == XmlTags.C_Zhu && getComponentType(pNode) != TextCompt && nNext == null) ||
         (nNext != null &&
-          [
-            XmlTags.C_CC,
-            XmlTags.C_Zhuang,
-            XmlTags.C_UV,
-            XmlTags.C_Ind,
-            XmlTags.C_Wei,
-          ].contains(nNext.tagName) &&
+          [XmlTags.C_CC, XmlTags.C_Zhuang, XmlTags.C_UV, XmlTags.C_Ind, XmlTags.C_Wei].contains(nNext.tagName) &&
           !nNext.hasAttribute(XmlTags.A_Fun)))
     ) {
       // console.log(pNode.cloneNode(true));
-      if (
-        node.element(XmlTags.C_Wei) != null ||
-        node.element(XmlTags.C_Sent) != null
-      ) {
-        let iType = node.hasAttribute(XmlTags.A_Inv) ? XmlTags.A_Inv : '';
+      if (node.element(XmlTags.C_Wei) != null || node.element(XmlTags.C_Sent) != null) {
+        let iType = node.hasAttribute(XmlTags.A_Inv) ? XmlTags.A_Inv : "";
         GridUtil.addColumn(compt, col);
         GridUtil.addItem(SbjSep, compt, 1, col++, iType);
         addedSbj = true;
@@ -1378,9 +1190,7 @@ function initialComptItems(compt, node, col, mergeTag, xmlTag, skipSbjJudge) {
   if (
     !hasUU &&
     compt.belongType(GridCompt) &&
-    (xmlTag == XmlTags.C_Ding ||
-      xmlTag == XmlTags.C_Zhuang ||
-      xmlTag == XmlTags.C_Bu)
+    (xmlTag == XmlTags.C_Ding || xmlTag == XmlTags.C_Zhuang || xmlTag == XmlTags.C_Bu)
   ) {
     GridUtil.addItem(
       TextCompt,
@@ -1389,7 +1199,7 @@ function initialComptItems(compt, node, col, mergeTag, xmlTag, skipSbjJudge) {
       xmlTag == XmlTags.C_Bu ? 1 : GlobalConst.GridMaxCol,
       XmlTags.C_UU,
       xmlDoc.createElement(XmlTags.C_UU),
-      '',
+      "",
       null,
       TextType.VIRTUAL_CORNER
     );
@@ -1398,10 +1208,7 @@ function initialComptItems(compt, node, col, mergeTag, xmlTag, skipSbjJudge) {
   if (merge.hasChildNodes()) {
     // console.log(111)
     //独词句中，单词节点置为C_Zhu
-    if (
-      merge.tagName == XmlTags.O_Temp &&
-      (xmlTag == XmlTags.C_FullSent || xmlTag == XmlTags.C_Sent)
-    )
+    if (merge.tagName == XmlTags.O_Temp && (xmlTag == XmlTags.C_FullSent || xmlTag == XmlTags.C_Sent))
       xmlTag = XmlTags.C_Zhu;
     //定状补中，单词节点置为O_Temp
     else if (
@@ -1412,8 +1219,7 @@ function initialComptItems(compt, node, col, mergeTag, xmlTag, skipSbjJudge) {
         xmlTag == XmlTags.C_Bu ||
         xmlTag == XmlTags.C_Ind)
     ) {
-      if (pNode.elements().some((o) => XmlExtends.hasNpTag(o)))
-        xmlTag = XmlTags.C_Bin;
+      if (pNode.elements().some((o) => XmlExtends.hasNpTag(o))) xmlTag = XmlTags.C_Bin;
       else xmlTag = XmlTags.O_Temp;
     }
 
@@ -1446,9 +1252,7 @@ function getComponentType(elementNode) {
         let cc = child
           .elementsBeforeSelf(XmlTags.C_CC)
           .lastOrDefault(
-            (p) =>
-              p.hasAttribute(XmlTags.A_Fun) &&
-              XmlTags.Prd_Fun.contains(p.getAttribute(XmlTags.A_Fun))
+            (p) => p.hasAttribute(XmlTags.A_Fun) && XmlTags.Prd_Fun.contains(p.getAttribute(XmlTags.A_Fun))
           );
         // 两谓语间没有复杂谓语CC，则按复句处理
         if (cc == null || cc.isBefore(lastPrd)) sbjCount = 2;
@@ -1461,16 +1265,10 @@ function getComponentType(elementNode) {
       //非联合谓语中后一谓语的主语则sbjCount++
       let ccUni = child
         .elementsBeforeSelf(XmlTags.C_CC)
-        .lastOrDefault(
-          (p) =>
-            p.hasAttribute(XmlTags.A_Fun) &&
-            p.getAttribute(XmlTags.A_Fun) == XmlTags.V_Fun_UNI
-        );
+        .lastOrDefault((p) => p.hasAttribute(XmlTags.A_Fun) && p.getAttribute(XmlTags.A_Fun) == XmlTags.V_Fun_UNI);
       if (ccUni == null) sbjCount++;
       else {
-        let sbjBeforePrd = child
-          .elementsBeforeSelf(XmlTags.C_Wei)
-          .lastOrDefault();
+        let sbjBeforePrd = child.elementsBeforeSelf(XmlTags.C_Wei).lastOrDefault();
         if (sbjBeforePrd.isAfter(ccUni)) sbjCount++;
       }
 
@@ -1478,11 +1276,7 @@ function getComponentType(elementNode) {
     }
   }
 
-  if (
-    (elementNode.tagName == XmlTags.C_Zhu ||
-      elementNode.tagName == XmlTags.C_Bin) &&
-    hasPrd
-  ) {
+  if ((elementNode.tagName == XmlTags.C_Zhu || elementNode.tagName == XmlTags.C_Bin) && hasPrd) {
     // 包含NP且顶起的主、宾设为TextCompt，方便附加NP成分的处理，顶起部分包裹节点后，递归处理
     if (hasNp) return TextCompt;
     else if (sbjCount > 1) return StackCompt;
@@ -1497,8 +1291,7 @@ function getComponentType(elementNode) {
   }
 
   // 主谓谓语句
-  if (elementNode.tagName == XmlTags.C_Wei && hasPrd)
-    return sbjCount > 1 ? StackCompt : GridCompt;
+  if (elementNode.tagName == XmlTags.C_Wei && hasPrd) return sbjCount > 1 ? StackCompt : GridCompt;
 
   // NP结构暂时都返回TextCompt
   if (hasNp) {
@@ -1555,15 +1348,14 @@ function adjustGridXml(oriXml) {
 
 //判断成份中包含几个xj，并添加对应的xj标签
 function wrapXjNode(node) {
-  if (node.tagName == XmlTags.C_Sent || node.element(XmlTags.C_Sent) != null)
-    return node;
+  if (node.tagName == XmlTags.C_Sent || node.element(XmlTags.C_Sent) != null) return node;
 
   let xmlDoc = new Document();
   let xjs = [];
   let children = node.elements();
   let uu = node.element(XmlTags.C_UU);
   // console.log('wrapXjNode')
-  let spans = getXjSpans(node); // {s:, e:}
+  let spans = XmlExtends.getXjSpans(node); // {s:, e:}
   // console.log(node.cloneNode(true));
   // console.log(spans);
   for (let i = 0; i < spans.length; i++) {
@@ -1634,101 +1426,6 @@ function wrapLiftNode(node, wrapTag) {
 }
 
 /**
- * 针对节点子元素数组，获取可以判定构成小句的起止索引位置列表
- * @param {Element} node
- * @returns {Array} {s: , e: }
- */
-function getXjSpans(node) {
-  let spans = [];
-  let children = node.elements();
-  let afterPrd = false;
-  let start = -1;
-  let npcore = XmlExtends.isNpCore(node);
-  for (let i = 0; i < children.length; i++) {
-    if (XmlExtends.isPrdPeeredCompt(children[i], true)) {
-      if (afterPrd) {
-        if (children[i].nameIs(XmlTags.C_CC) && children[i].hasAttributes())
-          afterPrd = false;
-        else if (
-          children[i].nameIs(XmlTags.C_Zhu, XmlTags.C_Wei, XmlTags.C_Zhuang) ||
-          (children[i].nameIs(XmlTags.C_CC) && !children[i].hasAttributes())
-        ) {
-          spans.push({
-            s: start,
-            e: i - 1,
-          });
-          start = i;
-          afterPrd = children[i].nameIs(XmlTags.C_Wei);
-        }
-        // 独立语处理
-        else if (children[i].nameIs(XmlTags.C_Ind)) {
-          let j = i + 1;
-          let next = children[j];
-          while (next && next.nameIs(XmlTags.C_Ind)) {
-            next = children[++j];
-          }
-          // 1、小句以独立语结尾
-          if (next == null) {
-            spans.push({
-              s: start,
-              e: j - 1,
-            });
-          }
-          // 2、小句中间的独立语，归属于下一小句
-          else if (
-            next.nameIs(XmlTags.C_Zhu, XmlTags.C_Wei, XmlTags.C_Zhuang) ||
-            (next.nameIs(XmlTags.C_CC) && !next.hasAttributes())
-          ) {
-            spans.push({
-              s: start,
-              e: i - 1,
-            });
-            start = i;
-            afterPrd = false;
-          }
-        }
-        // UV处理 成分复句中连续两个UV，前一个上一句，后一个归下一句
-        else if (
-          children[i].nameIs(XmlTags.C_UV) &&
-          children[i + 1] &&
-          children[i + 1].nameIs(XmlTags.C_UV)
-        ) {
-          spans.push({
-            s: start,
-            e: i,
-          });
-          start = i + 1;
-          afterPrd = false;
-        }
-      } else {
-        if (start == -1 && !(npcore && children[i].nameIs(XmlTags.C_Ind)))
-          start = i;
-        if (children[i].nameIs(XmlTags.C_Wei)) afterPrd = true;
-      }
-    } else if (afterPrd) {
-      let j = i - 1;
-      if (npcore) while (children[j].nameIs(XmlTags.C_Ind)) j--;
-      spans.push({
-        s: start,
-        e: j,
-      });
-      start = -1;
-      afterPrd = false;
-    }
-  }
-  if (afterPrd) {
-    let j = children.length - 1;
-    if (npcore) while (children[j].nameIs(XmlTags.C_Ind)) j--;
-
-    spans.push({
-      s: start,
-      e: j,
-    });
-  }
-  return spans;
-}
-
-/**
  * //补充空宾语
  * @param {Element} xj
  */
@@ -1760,10 +1457,7 @@ function appendEmptyObj(xj) {
     let skip = false; // 是否跳过添加宾语
 
     // 后续是否为多核谓语连词
-    while (
-      next != null &&
-      (next.tagName != XmlTags.C_CC || !next.hasAttribute(XmlTags.A_Fun))
-    ) {
+    while (next != null && (next.tagName != XmlTags.C_CC || !next.hasAttribute(XmlTags.A_Fun))) {
       if (next.tagName == XmlTags.C_Bin) {
         skip = true;
         break;
@@ -1786,8 +1480,7 @@ function appendEmptyObj(xj) {
       let obj = xmlDoc.createElement(XmlTags.C_Bin);
       let x = xmlDoc.createElement(XmlTags.W_QueSheng);
       obj.appendChild(x);
-      while (last.tagName == XmlTags.C_UV || last.tagName == XmlTags.C_Ind)
-        last = last.previousElementSibling;
+      while (last.tagName == XmlTags.C_UV || last.tagName == XmlTags.C_Ind) last = last.previousElementSibling;
 
       last.addAfterSelf(obj);
     }
@@ -1802,10 +1495,7 @@ function adjustSbjLift(xml) {
   let elems = xml.elements();
 
   // 带谓语且带Np_Compt
-  if (
-    elems.some((o) => XmlTags.Np_Compt.contains(o.tagName)) &&
-    elems.some((o) => XmlTags.C_Wei == o.tagName)
-  ) {
+  if (elems.some((o) => XmlTags.Np_Compt.contains(o.tagName)) && elems.some((o) => XmlTags.C_Wei == o.tagName)) {
     // document.createElement(XmlTags.C_Zhu); // 新建的节点tagName为大写，后续判断会有问题
     let sbj = document.createElementNS(null, XmlTags.C_Zhu);
     sbj.appendArray(elems);
@@ -1833,23 +1523,23 @@ function emptyNode(node) {
   }
 }
 
-import TextType from '../enum/text_type';
-import PrdExtend from '../enum/prd_extend.js';
-import XmlTags from './xml_tags.js';
-import GlobalConst from '../enum/global_variable';
-import GridUtil from './grid_util';
-import XmlExtends from './xml_extends';
+import TextType from "../enum/text_type";
+import PrdExtend from "../enum/prd_extend.js";
+import XmlTags from "./xml_tags.js";
+import GlobalConst from "../enum/global_variable";
+import GridUtil from "./grid_util";
+import XmlExtends from "./xml_extends";
 
-import BaseCompt from '../components/BaseCompt.vue';
-import TextCompt from '../components/TextCompt.vue';
-import GridCompt from '../components/GridCompt.vue';
-import StackCompt from '../components/StackCompt.vue';
+import BaseCompt from "../components/BaseCompt.vue";
+import TextCompt from "../components/TextCompt.vue";
+import GridCompt from "../components/GridCompt.vue";
+import StackCompt from "../components/StackCompt.vue";
 
-import FillLifter from '../components/assist/FillLifter.vue';
-import SbjSep from '../components/assist/SbjSep.vue';
-import PrdSep from '../components/assist/PrdSep.vue';
-import ObjSep from '../components/assist/ObjSep.vue';
-import WordFlag from '../components/assist/WordFlag.vue';
+import FillLifter from "../components/assist/FillLifter.vue";
+import SbjSep from "../components/assist/SbjSep.vue";
+import PrdSep from "../components/assist/PrdSep.vue";
+import ObjSep from "../components/assist/ObjSep.vue";
+import WordFlag from "../components/assist/WordFlag.vue";
 
 export default {
   convert2Parse,
