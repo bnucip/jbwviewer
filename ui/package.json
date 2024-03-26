@@ -45,12 +45,13 @@
     "electron": "^28.1.4",
     "electron-packager": "^17.1.2",
     "fast-xml-parser": "^4.3.2",
+    "follow-redirects": "^1.15.6",
     "fs-extra": "^8.1.0",
     "html2canvas": "^1.4.1",
     "leader-line": "^1.0.7",
     "lodash": "^4.17.21",
     "open": "^7.3.0",
-    "postcss": "^8.1.9",
+    "postcss": "^8.4.31",
     "quasar": "^2.0.0",
     "rimraf": "^3.0.0",
     "rollup": "^3.23.0",
@@ -66,6 +67,7 @@
     "vue-echarts": "^6.6.1",
     "vue-router": "^4.0.0",
     "vue3-draggable-resizable": "^1.6.5",
+    "webpack-dev-middleware": "^5.3.4",
     "zlib": "^1.0.5"
   },
   "browserslist": [
