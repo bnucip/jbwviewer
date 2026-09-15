@@ -40,7 +40,7 @@
           <q-btn icon="close" flat round dense v-close-popup />
         </q-card-section>
         <q-card-section>
-          <p>Email: <a href="mailto:pengweiming@bnu.edu.cn">pengweiming@bnu.edu.cn</a></p>
+          <p>Email: <a href="mailto:athing@tju.edu.cn">athing@tju.edu.cn</a></p>
           <a href="http://www.jubenwei.com" target="_blank">http://www.jubenwei.com</a>
         </q-card-section>
       </q-card>

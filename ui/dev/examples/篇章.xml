@@ -43,7 +43,7 @@
         </xj>
       </ju>
       <ju dct="0" id="3">
-        <xj upt="-1:1:s" rel="+接句">
+        <xj upt="-1:1:s" rel="接句">
           <sbj>
             <att>
               <r sen="001">这个</r>
@@ -140,7 +140,7 @@
             </obj>
           </obj>
         </xj>
-        <xj coh="⋮" upt="2:5" rel="顺承">
+        <xj coh="⋮" upt="2:5" rel="承接">
           <cc>
             <c sen="004">以</c>
           </cc>
@@ -181,7 +181,7 @@
             <w>，</w>
           </obj>
         </xj>
-        <xj upt="1:s" rel="顺承">
+        <xj upt="1:s" rel="承接">
           <sbj>
             <pp>
               <p sen="007">在</p>
@@ -318,7 +318,7 @@
             </obj>
           </obj>
         </xj>
-        <xj coh="⋮" upt="2:4" rel="顺承">
+        <xj coh="⋮" upt="2:4" rel="承接">
           <cc>
             <c sen="004">以</c>
           </cc>
@@ -369,7 +369,7 @@
             <w>，</w>
           </obj>
         </xj>
-        <xj coh="⋮" upt="1:1" rel="顺承">
+        <xj coh="⋮" upt="1:1" rel="承接">
           <prd scp="V">
             <v sen="001">不可</v>
           </prd>
@@ -544,7 +544,7 @@
             <w>，</w>
           </obj>
         </xj>
-        <xj upt="1:s" rel="解说">
+        <xj upt="1:s" rel="承接">
           <sbj>
             <att>
               <r sen="101">其</r>
@@ -619,7 +619,7 @@
             <w>，</w>
           </obj>
         </xj>
-        <xj coh="⋮" upt="1:2" rel="顺承">
+        <xj coh="⋮" upt="1:2" rel="承接">
           <prd scp="VO">
             <v sen="001">阻碍</v>
           </prd>
@@ -639,7 +639,7 @@
         </xj>
       </ju>
       <ju dct="0" id="4">
-        <xj upt="-1:1:s" rel="+承主">
+        <xj upt="-1:1:s" rel="承主">
           <sbj>
             <r sen="001">他们</r>
           </sbj>
@@ -692,7 +692,7 @@
           </n>
           <w>，</w>
         </xj>
-        <xj upt="1:s" rel="解说">
+        <xj upt="1:s" rel="接句">
           <sbj>
             <r sen="001">他们</r>
           </sbj>
@@ -713,7 +713,7 @@
             </ff>
           </cmp>
         </xj>
-        <xj coh="⋮" upt="2:1" rel="顺承">
+        <xj coh="⋮" upt="2:1" rel="承接">
           <prd scp="VO">
             <v sen="201">是</v>
           </prd>
@@ -733,7 +733,7 @@
         </xj>
       </ju>
       <ju dct="0" id="6">
-        <xj upt="-1:2:s" rel="顺承">
+        <xj upt="-1:2:s" rel="承接">
           <sbj>
             <att>
               <r sen="101">其</r>
